@@ -30,7 +30,7 @@
             overflow: hidden;
         }
         .timeline-item-content.active {
-            max-height: 500px;
+            max-height: 500px; /* Adjusted for content flexibility */
             opacity: 1;
             transform: translateY(0);
         }
@@ -52,14 +52,23 @@
             border-radius: 9999px;
             border: 2px solid white;
         }
+        .timeline-toggle-icon {
+            display: inline-block;
+            width: 1em;
+            text-align: center;
+            transition: transform 0.3s ease-in-out;
+        }
+        .timeline-toggle-icon.rotated {
+            transform: rotate(90deg);
+        }
     </style>
 </head>
 <body class="bg-stone-50 text-stone-800">
     <!-- Chosen Palette: Earthy Harmony -->
     <!-- Application Structure Plan: A single-page, narrative dashboard structure was chosen to transform the static CV into a compelling story of career progression and qualification. The structure flows from a strong profile summary (Hero), to an interactive career timeline visualizing growth, a section for tangible results (Key Achievements), and an interactive skills dashboard that directly maps Valentine's abilities to the KHRC job description's priorities. This design guides the recruiter through a persuasive journey, making the candidate's suitability clear and memorable, which is more effective than a traditional linear document. -->
-    <!-- Visualization & Content Choices: 
+    <!-- Visualization & Content Choices:
         - Profile: Goal=Inform, Method=Text Block, Interaction=None. Justification: Strong, clear opening statement.
-        - Experience: Goal=Show Change/Organize, Method=HTML/CSS/JS Vertical Timeline, Interaction=Click to expand/collapse details. Justification: Visually demonstrates career progression and allows for focused exploration of roles.
+        - Experience: Goal=Show Change/Organize, Method=HTML/CSS/JS Vertical Timeline, Interaction=Click to expand/collapse details. Justification: Visually demonstrates career progression and allows for focused exploration of roles. The first item is now expanded by default and a visual toggle icon is added for clarity.
         - Achievements (30% engagement increase): Goal=Inform/Impact, Method=HTML Stat Cards, Interaction=None. Justification: Highlights quantifiable results for immediate impact.
         - Skills: Goal=Compare/Organize, Method=Chart.js Doughnut Chart & HTML Lists, Interaction=Hover tooltips. Justification: The doughnut chart visualizes how her skill areas align with the job's weighted responsibilities (30/30/30/10), offering a powerful, at-a-glance view of her fitness for the role. This is more persuasive than a simple list.
         - CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
@@ -80,7 +89,7 @@
                 <div id="timeline-container" class="relative pl-10 md:pl-0">
                 </div>
             </section>
-            
+
             <section id="achievements" class="py-12 bg-white rounded-xl shadow-sm">
                  <h2 class="text-3xl font-bold text-center mb-12">Key Achievements & Impact</h2>
                  <div class="flex flex-wrap justify-center gap-8 px-4">
@@ -148,7 +157,7 @@
                     </div>
                 </div>
             </section>
-            
+
             <section id="education" class="py-12 mt-8 bg-white rounded-xl shadow-sm">
                 <h2 class="text-3xl font-bold text-center mb-8">Education & Certifications</h2>
                 <div class="text-center space-y-4">
@@ -193,7 +202,7 @@
                 company: 'British Broadcasting Corporation (BBC), Nairobi',
                 period: 'March 2022 – December 2022',
                 details: [
-                    'Produced, filmed, and edited high-quality digital video content for diverse audiences.',
+                    'Produced, filmed and edited high-quality digital video content for diverse audiences.',
                     'Utilized visual creativity with pictures and graphics to illustrate and explain complex data stories.',
                     'Collaborated with BBC Africa Hub teams on scripting and storyboarding to maximize video impact.',
                     'Applied digital analytics to monitor performance and identify content trends.',
@@ -235,16 +244,17 @@
         ];
 
         const timelineContainer = document.getElementById('timeline-container');
-        
+
         const timelineLine = document.createElement('div');
         timelineLine.className = 'timeline-line hidden md:block';
         timelineContainer.appendChild(timelineLine);
-        
+
         experienceData.forEach((item, index) => {
             const itemElement = document.createElement('div');
             itemElement.className = 'timeline-item relative py-4 md:py-6';
 
             const dot = `<div class="timeline-dot bg-[#8A817C]"></div>`;
+            const isActive = index === 0; // Set the first item to active by default
 
             const header = `
                 <div class="md:grid md:grid-cols-5 md:gap-8 items-start">
@@ -252,34 +262,50 @@
                         <p class="font-medium text-stone-500">${item.period}</p>
                     </div>
                     <div class="md:col-span-4 mt-2 md:mt-0">
-                        <button data-target="content-${index}" class="timeline-toggle text-left w-full">
-                            <h3 class="text-xl font-bold text-stone-800">${item.role}</h3>
-                            <p class="text-md text-[#6B705C]">${item.company}</p>
+                        <button data-target="content-${index}" class="timeline-toggle text-left w-full flex items-center justify-between">
+                            <div>
+                                <h3 class="text-xl font-bold text-stone-800">${item.role}</h3>
+                                <p class="text-md text-[#6B705C]">${item.company}</p>
+                            </div>
+                            <span class="timeline-toggle-icon text-2xl font-semibold text-stone-600 ${isActive ? 'rotated' : ''}">+</span>
                         </button>
-                        <div id="content-${index}" class="timeline-item-content mt-4 pr-4">
+                        <div id="content-${index}" class="timeline-item-content mt-4 pr-4 ${isActive ? 'active' : ''}">
                             <ul class="list-disc list-inside text-stone-600 space-y-2">
                                 ${item.details.map(detail => `<li>${detail}</li>`).join('')}
                             </ul>
                         </div>
                     </div>
                 </div>`;
-            
+
             itemElement.innerHTML = dot + header;
             timelineContainer.appendChild(itemElement);
         });
-        
+
         document.querySelectorAll('.timeline-toggle').forEach(button => {
             button.addEventListener('click', () => {
                 const targetId = button.getAttribute('data-target');
                 const targetContent = document.getElementById(targetId);
+                const toggleIcon = button.querySelector('.timeline-toggle-icon');
                 const isActive = targetContent.classList.contains('active');
-                
-                document.querySelectorAll('.timeline-item-content').forEach(content => {
-                    content.classList.remove('active');
+
+                // Close all other active items and reset their icons
+                document.querySelectorAll('.timeline-item-content.active').forEach(content => {
+                    if (content.id !== targetId) {
+                        content.classList.remove('active');
+                        content.previousElementSibling.querySelector('.timeline-toggle-icon').textContent = '+';
+                        content.previousElementSibling.querySelector('.timeline-toggle-icon').classList.remove('rotated');
+                    }
                 });
-                
-                if (!isActive) {
+
+                // Toggle the clicked item
+                if (isActive) {
+                    targetContent.classList.remove('active');
+                    toggleIcon.textContent = '+';
+                    toggleIcon.classList.remove('rotated');
+                } else {
                     targetContent.classList.add('active');
+                    toggleIcon.textContent = '−'; // Using unicode minus sign
+                    toggleIcon.classList.add('rotated');
                 }
             });
         });
