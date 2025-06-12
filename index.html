@@ -30,27 +30,41 @@
             overflow: hidden;
         }
         .timeline-item-content.active {
-            max-height: 500px; /* Adjusted for content flexibility */
+            max-height: 500px;
             opacity: 1;
             transform: translateY(0);
         }
+        /* Adjusted timeline styling for better alignment */
+        .timeline-container {
+            position: relative;
+            padding-left: 30px; /* Space for the line and dots */
+        }
         .timeline-line {
             position: absolute;
-            left: 1.25rem;
-            top: 1.25rem;
-            bottom: 1.25rem;
+            left: 20px; /* Position of the line (center of dots) */
+            top: 0;
+            bottom: 0;
             width: 2px;
             background-color: #e5e7eb;
             transform: translateX(-50%);
+            z-index: 5;
+        }
+        .timeline-item {
+            position: relative;
+            padding-left: 20px; /* Space between dot and content */
+            margin-bottom: 20px; /* Space between items */
         }
         .timeline-dot {
             position: absolute;
-            left: 1.25rem;
-            transform: translateX(-50%);
-            width: 1rem;
-            height: 1rem;
+            left: 0px; /* Position relative to timeline-item's left edge */
+            top: 10px; /* Align with role title */
+            width: 16px;
+            height: 16px;
             border-radius: 9999px;
-            border: 2px solid white;
+            background-color: #8A817C;
+            border: 3px solid #fdfcfb; /* Border matches body background */
+            transform: translateX(-50%);
+            z-index: 10;
         }
         .timeline-toggle-icon {
             display: inline-block;
@@ -68,7 +82,7 @@
     <!-- Application Structure Plan: A single-page, narrative dashboard structure was chosen to transform the static CV into a compelling story of career progression and qualification. The structure flows from a strong profile summary (Hero), to an interactive career timeline visualizing growth, a section for tangible results (Key Achievements), and an interactive skills dashboard that directly maps Valentine's abilities to the KHRC job description's priorities. This design guides the recruiter through a persuasive journey, making the candidate's suitability clear and memorable, which is more effective than a traditional linear document. -->
     <!-- Visualization & Content Choices:
         - Profile: Goal=Inform, Method=Text Block, Interaction=None. Justification: Strong, clear opening statement.
-        - Experience: Goal=Show Change/Organize, Method=HTML/CSS/JS Vertical Timeline, Interaction=Click to expand/collapse details. Justification: Visually demonstrates career progression and allows for focused exploration of roles. The first item is now expanded by default and a visual toggle icon is added for clarity.
+        - Experience: Goal=Show Change/Organize, Method=HTML/CSS/JS Vertical Timeline, Interaction=Click to expand/collapse details. Justification: Visually demonstrates career progression and allows for focused exploration of roles. The first item is now expanded by default and a visual toggle icon is added for clarity. Timeline alignment adjusted for visual precision.
         - Achievements (30% engagement increase): Goal=Inform/Impact, Method=HTML Stat Cards, Interaction=None. Justification: Highlights quantifiable results for immediate impact.
         - Skills: Goal=Compare/Organize, Method=Chart.js Doughnut Chart & HTML Lists, Interaction=Hover tooltips. Justification: The doughnut chart visualizes how her skill areas align with the job's weighted responsibilities (30/30/30/10), offering a powerful, at-a-glance view of her fitness for the role. This is more persuasive than a simple list.
         - CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
@@ -86,7 +100,7 @@
         <main>
             <section id="experience" class="py-12">
                 <h2 class="text-3xl font-bold text-center mb-12">Career Journey</h2>
-                <div id="timeline-container" class="relative pl-10 md:pl-0">
+                <div id="timeline-container" class="relative">
                 </div>
             </section>
 
@@ -177,9 +191,10 @@
             <h2 class="text-2xl font-bold mb-6">Get In Touch</h2>
              <div class="flex justify-center items-center space-x-6">
                 <a href="mailto:Valentinewatati@gmail.com" class="text-stone-600 hover:text-[#6B705C] transition-colors">Email</a>
-                <a href="#" class="text-stone-600 hover:text-[#6B705C] transition-colors">LinkedIn</a>
-                <a href="#" class="text-stone-600 hover:text-[#6B705C] transition-colors">Portfolio</a>
-                <a href="#" class="text-stone-600 hover:text-[#6B705C] transition-colors">ShowReel</a>
+                <a href="http://www.linkedin.com/in/valentine-ngaruiya-" target="_blank" rel="noopener noreferrer" class="text-stone-600 hover:text-[#6B705C] transition-colors">LinkedIn</a>
+                <a href="https://aboutvalentinengaruiya.my.canva.site/" target="_blank" rel="noopener noreferrer" class="text-stone-600 hover:text-[#6B705C] transition-colors">Portfolio</a>
+                <a href="https://docs.google.com/document/d/1zTSA6mqTwFDCCEcfuqtYKApCTqtqGb1fZgS6ruo16ts/edit" target="_blank" rel="noopener noreferrer" class="text-stone-600 hover:text-[#6B705C] transition-colors">Work Links</a>
+                <a href="https://drive.google.com/file/d/1b9zPBVLf3tUP9DGxDCUWpHOWAk8Kz_JE/view?usp=drivesdk" target="_blank" rel="noopener noreferrer" class="text-stone-600 hover:text-[#6B705C] transition-colors">Showreel</a>
             </div>
         </footer>
 
@@ -245,39 +260,42 @@
 
         const timelineContainer = document.getElementById('timeline-container');
 
+        // Add the main timeline line stretching the full height of the container
         const timelineLine = document.createElement('div');
-        timelineLine.className = 'timeline-line hidden md:block';
+        timelineLine.className = 'timeline-line';
         timelineContainer.appendChild(timelineLine);
 
         experienceData.forEach((item, index) => {
             const itemElement = document.createElement('div');
-            itemElement.className = 'timeline-item relative py-4 md:py-6';
+            itemElement.className = 'timeline-item';
 
-            const dot = `<div class="timeline-dot bg-[#8A817C]"></div>`;
             const isActive = index === 0; // Set the first item to active by default
 
             const header = `
-                <div class="md:grid md:grid-cols-5 md:gap-8 items-start">
-                    <div class="md:col-span-1 md:text-right">
-                        <p class="font-medium text-stone-500">${item.period}</p>
-                    </div>
-                    <div class="md:col-span-4 mt-2 md:mt-0">
-                        <button data-target="content-${index}" class="timeline-toggle text-left w-full flex items-center justify-between">
-                            <div>
-                                <h3 class="text-xl font-bold text-stone-800">${item.role}</h3>
-                                <p class="text-md text-[#6B705C]">${item.company}</p>
+                <div class="relative">
+                    <div class="timeline-dot"></div>
+                    <div class="md:grid md:grid-cols-5 md:gap-8 items-start">
+                        <div class="md:col-span-1 md:text-right mb-2 md:mb-0">
+                            <p class="font-medium text-stone-500">${item.period}</p>
+                        </div>
+                        <div class="md:col-span-4">
+                            <button data-target="content-${index}" class="timeline-toggle text-left w-full flex items-center justify-between">
+                                <div>
+                                    <h3 class="text-xl font-bold text-stone-800">${item.role}</h3>
+                                    <p class="text-md text-[#6B705C]">${item.company}</p>
+                                </div>
+                                <span class="timeline-toggle-icon text-2xl font-semibold text-stone-600 ${isActive ? 'rotated' : ''}">+</span>
+                            </button>
+                            <div id="content-${index}" class="timeline-item-content mt-4 pr-4 ${isActive ? 'active' : ''}">
+                                <ul class="list-disc list-inside text-stone-600 space-y-2">
+                                    ${item.details.map(detail => `<li>${detail}</li>`).join('')}
+                                </ul>
                             </div>
-                            <span class="timeline-toggle-icon text-2xl font-semibold text-stone-600 ${isActive ? 'rotated' : ''}">+</span>
-                        </button>
-                        <div id="content-${index}" class="timeline-item-content mt-4 pr-4 ${isActive ? 'active' : ''}">
-                            <ul class="list-disc list-inside text-stone-600 space-y-2">
-                                ${item.details.map(detail => `<li>${detail}</li>`).join('')}
-                            </ul>
                         </div>
                     </div>
                 </div>`;
 
-            itemElement.innerHTML = dot + header;
+            itemElement.innerHTML = header;
             timelineContainer.appendChild(itemElement);
         });
 
