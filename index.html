@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valentine Ngaruiya | Communications Professional</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 450px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 450px;
+            max-height: 80vh;
+        }
+        .timeline-item-content {
+            transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+            max-height: 0;
+            opacity: 0;
+            transform: translateY(-10px);
+            overflow: hidden;
+        }
+        .timeline-item-content.active {
+            max-height: 500px;
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .timeline-line {
+            position: absolute;
+            left: 1.25rem;
+            top: 1.25rem;
+            bottom: 1.25rem;
+            width: 2px;
+            background-color: #e5e7eb;
+            transform: translateX(-50%);
+        }
+        .timeline-dot {
+            position: absolute;
+            left: 1.25rem;
+            transform: translateX(-50%);
+            width: 1rem;
+            height: 1rem;
+            border-radius: 9999px;
+            border: 2px solid white;
+        }
+    </style>
+</head>
+<body class="bg-stone-50 text-stone-800">
+    <!-- Chosen Palette: Earthy Harmony -->
+    <!-- Application Structure Plan: A single-page, narrative dashboard structure was chosen to transform the static CV into a compelling story of career progression and qualification. The structure flows from a strong profile summary (Hero), to an interactive career timeline visualizing growth, a section for tangible results (Key Achievements), and an interactive skills dashboard that directly maps Valentine's abilities to the KHRC job description's priorities. This design guides the recruiter through a persuasive journey, making the candidate's suitability clear and memorable, which is more effective than a traditional linear document. -->
+    <!-- Visualization & Content Choices: 
+        - Profile: Goal=Inform, Method=Text Block, Interaction=None. Justification: Strong, clear opening statement.
+        - Experience: Goal=Show Change/Organize, Method=HTML/CSS/JS Vertical Timeline, Interaction=Click to expand/collapse details. Justification: Visually demonstrates career progression and allows for focused exploration of roles.
+        - Achievements (30% engagement increase): Goal=Inform/Impact, Method=HTML Stat Cards, Interaction=None. Justification: Highlights quantifiable results for immediate impact.
+        - Skills: Goal=Compare/Organize, Method=Chart.js Doughnut Chart & HTML Lists, Interaction=Hover tooltips. Justification: The doughnut chart visualizes how her skill areas align with the job's weighted responsibilities (30/30/30/10), offering a powerful, at-a-glance view of her fitness for the role. This is more persuasive than a simple list.
+        - CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+
+    <div class="container mx-auto p-4 md:p-8 max-w-5xl">
+
+        <header class="text-center py-12">
+            <h1 class="text-4xl md:text-6xl font-bold text-stone-900">Valentine Ngaruiya</h1>
+            <p class="text-xl md:text-2xl text-[#8A817C] mt-2">Communications Professional</p>
+            <p class="max-w-3xl mx-auto mt-6 text-stone-600">
+                A multi-platform digital content producer with a strong track record of creating engaging, purpose-driven stories. Skilled in video production, visual storytelling, and social media strategy, with experience translating complex social issues into accessible content, from political coverage to human rights advocacy.
+            </p>
+        </header>
+
+        <main>
+            <section id="experience" class="py-12">
+                <h2 class="text-3xl font-bold text-center mb-12">Career Journey</h2>
+                <div id="timeline-container" class="relative pl-10 md:pl-0">
+                </div>
+            </section>
+            
+            <section id="achievements" class="py-12 bg-white rounded-xl shadow-sm">
+                 <h2 class="text-3xl font-bold text-center mb-12">Key Achievements & Impact</h2>
+                 <div class="flex flex-wrap justify-center gap-8 px-4">
+                    <div class="text-center p-6 rounded-lg bg-stone-100 w-full sm:w-1/3">
+                        <p class="text-5xl font-bold text-[#6B705C]">+30%</p>
+                        <p class="mt-2 text-stone-700">Increase in Viewer Engagement</p>
+                        <p class="text-sm text-stone-500">(Radio Africa Group)</p>
+                    </div>
+                     <div class="text-center p-6 rounded-lg bg-stone-100 w-full sm:w-1/3">
+                        <p class="text-5xl font-bold text-[#6B705C]">+20%</p>
+                        <p class="mt-2 text-stone-700">Growth in Subscriber Base</p>
+                        <p class="text-sm text-stone-500">(Radio Africa Group)</p>
+                    </div>
+                 </div>
+            </section>
+
+
+            <section id="skills" class="py-12 mt-12">
+                <h2 class="text-3xl font-bold text-center mb-4">Core Competencies</h2>
+                <p class="text-center text-stone-600 max-w-2xl mx-auto mb-12">
+                    This chart shows an alignment of skills with the core responsibilities outlined in the KHRC Communications Assistant role. The sections below the chart detail specific capabilities within each area.
+                </p>
+                <div class="flex flex-col lg:flex-row items-center gap-12">
+                    <div class="w-full lg:w-1/2">
+                        <div class="chart-container">
+                            <canvas id="skillsChart"></canvas>
+                        </div>
+                    </div>
+                    <div id="skills-details" class="w-full lg:w-1/2 space-y-6">
+                        <div>
+                            <h3 class="font-bold text-lg text-stone-800">Media Monitoring & Content Analysis (30%)</h3>
+                            <ul class="list-disc list-inside text-stone-600 mt-2 space-y-1">
+                                <li>Content Analysis & Trend Identification</li>
+                                <li>Media Archiving & Tagging</li>
+                                <li>Qualitative & Quantitative Analysis</li>
+                                <li>Media Analytics Reporting (Excel, Google Sheets)</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-lg text-stone-800">Documentation & Knowledge Management (30%)</h3>
+                            <ul class="list-disc list-inside text-stone-600 mt-2 space-y-1">
+                                <li>Translating Social Issues into Accessible Content</li>
+                                <li>Storytelling & Visual Narratives</li>
+                                <li>Video Production, Editing & Photography</li>
+                                <li>Multimedia Design (Canva, InDesign)</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-lg text-stone-800">Media Relations & Outreach (30%)</h3>
+                            <ul class="list-disc list-inside text-stone-600 mt-2 space-y-1">
+                                <li>Multi-Channel Content Production</li>
+                                <li>Media Relations & Journalism</li>
+                                <li>Digital & Social Media Strategy</li>
+                                <li>Cross-Cultural Communications</li>
+                            </ul>
+                        </div>
+                         <div>
+                            <h3 class="font-bold text-lg text-stone-800">Administration & Support (10%)</h3>
+                            <ul class="list-disc list-inside text-stone-600 mt-2 space-y-1">
+                                <li>Proficient in MS Office Suite (Word, Excel, etc.)</li>
+                                <li>Coordinating multi-stakeholder communication</li>
+                                <li>End-to-end project logistics</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="education" class="py-12 mt-8 bg-white rounded-xl shadow-sm">
+                <h2 class="text-3xl font-bold text-center mb-8">Education & Certifications</h2>
+                <div class="text-center space-y-4">
+                    <div>
+                        <h3 class="text-xl font-semibold">Bachelor of Film Production and Animation</h3>
+                        <p class="text-stone-600">Multimedia University, Kenya | 2016 – 2020</p>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-semibold">AI Career Essentials</h3>
+                        <p class="text-stone-600">ALX Africa, Kenya | 2024</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="text-center py-12 mt-12 border-t border-stone-200">
+            <h2 class="text-2xl font-bold mb-6">Get In Touch</h2>
+             <div class="flex justify-center items-center space-x-6">
+                <a href="mailto:Valentinewatati@gmail.com" class="text-stone-600 hover:text-[#6B705C] transition-colors">Email</a>
+                <a href="#" class="text-stone-600 hover:text-[#6B705C] transition-colors">LinkedIn</a>
+                <a href="#" class="text-stone-600 hover:text-[#6B705C] transition-colors">Portfolio</a>
+                <a href="#" class="text-stone-600 hover:text-[#6B705C] transition-colors">ShowReel</a>
+            </div>
+        </footer>
+
+    </div>
+
+    <script>
+        const experienceData = [
+            {
+                role: 'Reservations and Listing Manager',
+                company: 'Wonderiss Homes, Nairobi',
+                period: 'June 2023 – Current',
+                details: [
+                    'Orchestrates complex booking processes, ensuring accurate record-keeping and timely updates.',
+                    'Coordinates communication among guests and property teams, serving as a key point of contact.',
+                    'Maintains accurate records and analyzes booking trends to improve service delivery.',
+                ]
+            },
+            {
+                role: 'Digital Video Journalist',
+                company: 'British Broadcasting Corporation (BBC), Nairobi',
+                period: 'March 2022 – December 2022',
+                details: [
+                    'Produced, filmed, and edited high-quality digital video content for diverse audiences.',
+                    'Utilized visual creativity with pictures and graphics to illustrate and explain complex data stories.',
+                    'Collaborated with BBC Africa Hub teams on scripting and storyboarding to maximize video impact.',
+                    'Applied digital analytics to monitor performance and identify content trends.',
+                    'Exercised sound journalistic judgment, ensuring accurate and impartial reporting.',
+                ]
+            },
+            {
+                role: 'Property Advert Designer',
+                company: 'Hamisha Me, Nairobi',
+                period: 'March 2021 – Current',
+                details: [
+                    'Creates visually appealing content showcasing property features through compelling videos, pictures, and presentations.',
+                    'Designs multimedia presentations, managing end-to-end project logistics and client communications.',
+                    'Applies problem-solving skills to analyze and resolve design challenges effectively.',
+                ]
+            },
+            {
+                role: 'Digital Video Journalist (Mobile Journalism Fellowship with Meta)',
+                company: 'Radio Africa Group, Nairobi',
+                period: 'January 2020 – December 2020',
+                details: [
+                    'Managed social media platforms to promote content, engage with audiences, and drive traffic.',
+                    'Partnered with Facebook for content distribution and audience engagement initiatives.',
+                    'Produced, filmed, and edited engaging video content, resulting in a 30% increase in viewer engagement and a 20% growth in the subscriber base.',
+                    'Used analysis tools to track social media performance for content optimization.',
+                ]
+            },
+            {
+                role: 'News Reporter (Internship)',
+                company: 'Mediamax Network K24, Nairobi',
+                period: 'February 2019 – July 2019',
+                details: [
+                    'Evaluated news leads and tips to develop compelling story ideas for broadcast.',
+                    'Conducted thorough research, interviews, and on-site reporting to gather accurate information.',
+                    'Built and maintained relationships with beat sources, contacts, and leads.',
+                    'Adhered to journalistic ethics and standards.',
+                ]
+            },
+        ];
+
+        const timelineContainer = document.getElementById('timeline-container');
+        
+        const timelineLine = document.createElement('div');
+        timelineLine.className = 'timeline-line hidden md:block';
+        timelineContainer.appendChild(timelineLine);
+        
+        experienceData.forEach((item, index) => {
+            const itemElement = document.createElement('div');
+            itemElement.className = 'timeline-item relative py-4 md:py-6';
+
+            const dot = `<div class="timeline-dot bg-[#8A817C]"></div>`;
+
+            const header = `
+                <div class="md:grid md:grid-cols-5 md:gap-8 items-start">
+                    <div class="md:col-span-1 md:text-right">
+                        <p class="font-medium text-stone-500">${item.period}</p>
+                    </div>
+                    <div class="md:col-span-4 mt-2 md:mt-0">
+                        <button data-target="content-${index}" class="timeline-toggle text-left w-full">
+                            <h3 class="text-xl font-bold text-stone-800">${item.role}</h3>
+                            <p class="text-md text-[#6B705C]">${item.company}</p>
+                        </button>
+                        <div id="content-${index}" class="timeline-item-content mt-4 pr-4">
+                            <ul class="list-disc list-inside text-stone-600 space-y-2">
+                                ${item.details.map(detail => `<li>${detail}</li>`).join('')}
+                            </ul>
+                        </div>
+                    </div>
+                </div>`;
+            
+            itemElement.innerHTML = dot + header;
+            timelineContainer.appendChild(itemElement);
+        });
+        
+        document.querySelectorAll('.timeline-toggle').forEach(button => {
+            button.addEventListener('click', () => {
+                const targetId = button.getAttribute('data-target');
+                const targetContent = document.getElementById(targetId);
+                const isActive = targetContent.classList.contains('active');
+                
+                document.querySelectorAll('.timeline-item-content').forEach(content => {
+                    content.classList.remove('active');
+                });
+                
+                if (!isActive) {
+                    targetContent.classList.add('active');
+                }
+            });
+        });
+
+        const skillsCtx = document.getElementById('skillsChart').getContext('2d');
+        const skillsChart = new Chart(skillsCtx, {
+            type: 'doughnut',
+            data: {
+                labels: ['Media Monitoring & Analysis', 'Documentation & Knowledge Mgt.', 'Media Relations & Outreach', 'Administration'],
+                datasets: [{
+                    label: 'Skill Alignment with Role',
+                    data: [30, 30, 30, 10],
+                    backgroundColor: [
+                        '#B5838D',
+                        '#E5989B',
+                        '#FFB4A2',
+                        '#FFCDB2',
+                    ],
+                    borderColor: '#fdfcfb',
+                    borderWidth: 4,
+                    hoverOffset: 15
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                cutout: '60%',
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                        labels: {
+                           padding: 20,
+                           color: '#57534e',
+                           font: {
+                               size: 14
+                           }
+                        }
+                    },
+                    tooltip: {
+                        enabled: true,
+                        backgroundColor: '#333',
+                        titleColor: '#fff',
+                        bodyColor: '#fff',
+                        callbacks: {
+                            label: function(context) {
+                                let label = context.label || '';
+                                if (label) {
+                                    label += ': ';
+                                }
+                                if (context.parsed !== null) {
+                                    label += context.parsed + '%';
+                                }
+                                return label;
+                            }
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+
+</body>
+</html>
