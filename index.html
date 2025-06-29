@@ -268,11 +268,11 @@
         }
 
         .hero-image-container {
-            flex: 1;
-            min-width: 350px; /* Bigger image container */
-            max-width: 450px; /* Bigger image container */
-            height: 350px; /* Fixed height for circular aspect */
-            border-radius: 50%; /* Make it circular */
+            flex: 1.2; /* Give it slightly more flex space to be wider */
+            min-width: 300px;
+            max-width: 550px; /* Make it wider */
+            height: 400px; /* More rectangular height for desktop */
+            border-radius: 15px; /* Keep some rounding for elegance, but not 50% */
             overflow: hidden;
             box-shadow: 0 20px 50px rgba(0,0,0,0.5); /* Stronger, more artistic shadow */
             border: 10px solid #B8860B; /* Thicker gold accent border */
@@ -281,7 +281,7 @@
             position: relative;
         }
         .hero-image-container:hover {
-            transform: scale(1.05) rotate(2deg); /* Subtle scale and rotate on hover */
+            transform: scale(1.03) rotate(0deg); /* Subtle scale on hover, no rotation */
             box-shadow: 0 25px 60px rgba(0,0,0,0.6);
             border-color: #D4AF37; /* Lighter gold on hover */
         }
@@ -290,7 +290,7 @@
             height: 100%;
             display: block;
             object-fit: cover; /* Ensures image covers container without distortion */
-            object-position: center; /* Center the image within the circle */
+            object-position: center; /* Center the image within the container */
         }
 
         .hero-video {
@@ -653,8 +653,8 @@
             }
             .hero-image-container {
                 margin-bottom: 50px; /* Space between image and text on small screens */
-                max-width: 320px; /* Adjust size for smaller screens */
-                height: 320px;
+                max-width: 450px; /* Adjust size for medium screens */
+                height: 350px; /* Adjust height for medium screens */
             }
             .skills-grid, .project-grid {
                 grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -702,6 +702,10 @@
             }
             .hero-content .tagline { font-size: 1.8em; }
             .hero-content .intro-text { font-size: 1.05em; }
+            .hero-image-container {
+                max-width: 90%; /* Take up most of the width on mobile */
+                height: 300px; /* Adjust height for mobile */
+            }
         }
 
         @media (max-width: 480px) {
@@ -754,9 +758,9 @@
                             Commit the changes.
                         2.  **Update the `src` below:** Replace `https://placehold.co/350x350/FF7043/FFF?text=Your+Photo`
                             with the relative path to your uploaded image, for example: `src="images/Screenshot 2025-06-29 at 14.51.55.jpg"`.
-                        3.  Make sure your image is square or will look good cropped into a circle.
+                        3.  Make sure your image is square or will look good cropped into a box.
                     -->
-                   <img src="images/Screenshot 2025-06-29 at 14.51.55.jpg" alt="Valentine Ngaruiya Profile Picture">
+                    <img src="images/valentine-profile.png" alt="Valentine Ngaruiya Profile Picture">
                 </div>
                 <div class="hero-content">
                     <h1>Valentine Ngaruiya: Digital Communications & Content Producer</h1>
