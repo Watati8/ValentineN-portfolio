@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Valentine Ngaruiya - Digital Communications & Content Producer</title>
     <!-- Google Fonts for a modern, creative look -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&family=Open+Sans:wght@300;400;600;700&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
     <!-- Font Awesome for professional icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
@@ -42,7 +42,17 @@
             text-shadow: 1px 1px 3px rgba(0,0,0,0.4); /* More pronounced text shadow for depth */
         }
 
-        h1 { font-size: 4.2em; } /* Larger for main title */
+        /* Specific font for H1 in Hero section */
+        .hero-content h1 {
+            font-family: 'Playfair Display', serif; /* New elegant font for the main title */
+            font-size: 4.8em; /* Adjusted: Slightly smaller for better balance */
+            color: #FFFAFA;
+            margin-bottom: 25px; /* Adjusted: Slightly less margin */
+            font-weight: 900; /* Bolder for Playfair Display */
+            line-height: 1.1;
+            letter-spacing: -1px; /* Tighter letter spacing for h1 */
+        }
+
         h2 { font-size: 3em; text-align: center; margin-bottom: 60px; color: #F0F0F0; position: relative; } /* Centered section titles */
         h2::after {
             content: '';
@@ -248,15 +258,6 @@
             justify-content: center; /* Center content vertically within its flex item */
             align-items: flex-start; /* Align text to start */
             z-index: 2; /* Ensure content is above background elements */
-        }
-
-        .hero-content h1 {
-            font-size: 4.8em; /* Adjusted: Slightly smaller for better balance */
-            color: #FFFAFA;
-            margin-bottom: 25px; /* Adjusted: Slightly less margin */
-            font-weight: 800;
-            line-height: 1.1;
-            letter-spacing: -1px; /* Tighter letter spacing for h1 */
         }
 
         .hero-content .tagline {
