@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Valentine Ngaruiya - Digital Communications & Content Producer</title>
-    <!-- Google Fonts for a modern look (Roboto) -->
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <!-- Font Awesome for professional icons in skills section -->
+    <!-- Google Fonts for a modern, creative look -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <!-- Font Awesome for professional icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
     <!-- INLINE CSS STARTS HERE - ALL YOUR STYLES ARE NOW DIRECTLY IN THIS FILE -->
@@ -14,10 +14,10 @@
         /* General Styling & Typography */
         body {
             margin: 0;
-            font-family: 'Roboto', sans-serif; /* Modern, readable font */
+            font-family: 'Open Sans', sans-serif; /* Body text font */
             line-height: 1.6;
-            color: #333; /* Dark grey for readability */
-            background-color: #f4f4f4; /* Light grey background */
+            color: #4A4A4A; /* Darker grey for readability */
+            background-color: #F8F9FA; /* Off-white background */
             scroll-behavior: smooth; /* Smooth scrolling for anchor links */
         }
 
@@ -28,67 +28,72 @@
         }
 
         h1, h2, h3, h4 {
-            color: #2c3e50; /* Dark blue-grey for headings */
+            font-family: 'Poppins', sans-serif; /* Headings font */
+            color: #2C3E50; /* Deep Blue */
             margin-bottom: 15px;
             line-height: 1.2;
         }
 
-        h1 { font-size: 3em; } /* Larger for main title */
-        h2 { font-size: 2.2em; text-align: center; margin-bottom: 40px; color: #34495e; } /* Centered section titles */
-        h3 { font-size: 1.6em; }
-        h4 { font-size: 1.4em; }
+        h1 { font-size: 3.5em; } /* Larger for main title */
+        h2 { font-size: 2.5em; text-align: center; margin-bottom: 50px; color: #34495E; } /* Centered section titles */
+        h3 { font-size: 1.8em; }
+        h4 { font-size: 1.5em; }
 
         a {
-            color: #3498db; /* Bright blue for links */
+            color: #FF7043; /* Vibrant Orange for links */
             text-decoration: none;
             transition: color 0.3s ease;
         }
 
         a:hover {
             text-decoration: underline;
-            color: #2980b9; /* Slightly darker blue on hover */
+            color: #E64A19; /* Darker orange on hover */
         }
 
         .button {
             display: inline-block;
-            background-color: #3498db;
+            background-color: #FF7043; /* Vibrant Orange */
             color: #fff;
-            padding: 12px 25px;
-            border-radius: 5px;
+            padding: 14px 30px;
+            border-radius: 8px; /* More rounded */
             text-decoration: none;
-            transition: background-color 0.3s ease, transform 0.2s ease;
-            font-weight: bold;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* Subtle shadow */
+            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+            font-weight: 600;
+            box-shadow: 0 6px 12px rgba(255, 112, 67, 0.3); /* Orange-tinted shadow */
+            letter-spacing: 0.5px;
         }
 
         .button:hover {
-            background-color: #2980b9;
-            transform: translateY(-2px); /* Slight lift effect */
+            background-color: #E64A19;
+            transform: translateY(-3px); /* More lift effect */
+            box-shadow: 0 8px 16px rgba(255, 112, 67, 0.4);
             text-decoration: none;
         }
 
         /* Header & Navigation */
         header {
-            background-color: #2c3e50; /* Dark header background */
+            background-color: #2C3E50; /* Deep Blue header */
             color: #fff;
             padding: 15px 0;
-            position: sticky; /* Keeps header visible on scroll */
+            position: sticky;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
         }
 
         header .container {
-            display: flex; /* Use flexbox for horizontal alignment */
-            justify-content: space-between; /* Space between logo and nav */
-            align-items: center; /* Vertically center items */
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
         .logo {
-            font-size: 1.8em;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.9em;
             font-weight: 700;
             color: #fff;
-            flex-shrink: 0; /* Prevents shrinking on smaller screens */
+            flex-shrink: 0;
+            letter-spacing: 1px;
         }
 
         nav ul {
@@ -96,73 +101,93 @@
             margin: 0;
             padding: 0;
             display: flex; /* Makes nav items go side-by-side */
-            gap: 25px; /* Space between nav items */
+            gap: 30px; /* Increased space */
         }
 
         nav ul li a {
             color: #fff;
-            font-weight: 500;
-            padding: 5px 0; /* Add padding for better click area */
+            font-weight: 600;
+            padding: 8px 0;
             transition: color 0.3s ease, border-bottom 0.3s ease;
         }
 
         nav ul li a:hover {
-            color: #3498db;
+            color: #FF7043; /* Vibrant Orange on hover */
             text-decoration: none;
-            border-bottom: 2px solid #3498db; /* Underline effect on hover */
+            border-bottom: 3px solid #FF7043; /* Thicker underline effect */
         }
 
         /* Hero Section */
         .hero {
-            background: linear-gradient(to right, #ecf0f1, #dce4e6); /* Soft gradient background */
-            padding: 100px 0;
+            background: linear-gradient(to bottom right, #ECF0F1, #DCE4E6); /* Soft gradient background */
+            padding: 120px 0 80px 0; /* More padding top, less bottom */
             text-align: center;
         }
 
         .hero .container {
             display: flex;
-            flex-wrap: wrap; /* Allows wrapping on smaller screens */
+            flex-wrap: wrap;
             justify-content: center;
             align-items: center;
-            gap: 50px; /* More space between text and video */
+            gap: 60px; /* Increased gap */
         }
 
         .hero-content {
-            flex: 2; /* Takes more space than video on larger screens */
-            min-width: 300px;
-            max-width: 700px;
+            flex: 2;
+            min-width: 320px;
+            max-width: 650px;
             text-align: left;
         }
 
         .hero-content h1 {
-            font-size: 3.8em;
-            color: #2c3e50;
-            margin-bottom: 20px;
+            font-size: 4em; /* Even larger title */
+            color: #2C3E50;
+            margin-bottom: 25px;
         }
 
         .hero-content .tagline {
-            font-size: 1.6em;
-            color: #555;
-            margin-bottom: 25px;
-            font-weight: 300;
+            font-family: 'Open Sans', sans-serif;
+            font-size: 1.8em; /* Larger tagline */
+            color: #5A5A5A;
+            margin-bottom: 30px;
+            font-weight: 400;
         }
 
         .hero-content .intro-text {
-            font-size: 1.15em;
+            font-size: 1.1em;
             margin-bottom: 40px;
-            color: #444;
+            color: #666;
+        }
+
+        .hero-image-container {
+            flex: 1;
+            min-width: 280px;
+            max-width: 350px;
+            border-radius: 50%; /* Make it circular */
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.25); /* Stronger shadow */
+            border: 5px solid #FF7043; /* Accent border */
+            animation: fadeInScale 1s ease-out; /* Simple entry animation */
+        }
+
+        .hero-image-container img {
+            width: 100%;
+            height: 100%;
+            display: block;
+            object-fit: cover; /* Ensures image covers container without distortion */
         }
 
         .hero-video {
             flex: 1;
-            min-width: 320px; /* Minimum width for video container */
-            max-width: 560px; /* Max width for standard embed */
+            min-width: 320px;
+            max-width: 560px;
             position: relative;
-            padding-bottom: 56.25%; /* 16:9 Aspect Ratio (height / width = 9 / 16 = 0.5625) */
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
             height: 0;
             overflow: hidden;
-            border-radius: 12px;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            border-radius: 15px; /* More rounded corners */
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            margin-top: 40px; /* Space between intro text/image and video */
         }
 
         .hero-video iframe {
@@ -178,53 +203,55 @@
         section {
             padding: 80px 0;
             background-color: #fff;
-            margin-bottom: 30px;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.08); /* More prominent shadow */
+            margin-bottom: 40px; /* More space between sections */
+            border-radius: 15px; /* More rounded section corners */
+            box-shadow: 0 8px 30px rgba(0,0,0,0.1); /* Soft, larger shadow */
         }
 
         /* Skills Section */
         .skills-section {
-            background-color: #f9f9f9;
+            background-color: #F0F2F5; /* Slightly darker background for this section */
         }
 
         .skills-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Adaptive grid columns */
-            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Adaptive grid columns */
+            gap: 35px; /* Increased gap */
             text-align: center;
         }
 
         .skill-item {
             background-color: #fff;
-            padding: 35px;
-            border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            padding: 40px; /* More padding */
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
             display: flex;
             flex-direction: column;
             align-items: center;
+            border-bottom: 4px solid #FF7043; /* Accent border bottom */
         }
 
         .skill-item:hover {
-            transform: translateY(-8px); /* More pronounced lift */
-            box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+            transform: translateY(-10px); /* More pronounced lift */
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            background-color: #FFFDE7; /* Light yellow tint on hover */
         }
 
         .skill-item i {
-            font-size: 3.5em;
-            color: #3498db;
-            margin-bottom: 20px;
+            font-size: 4em; /* Larger icons */
+            color: #FF7043; /* Vibrant Orange */
+            margin-bottom: 25px;
         }
 
         .skill-item h3 {
-            margin: 0 0 10px 0;
-            font-size: 1.3em;
-            color: #2c3e50;
+            margin: 0 0 12px 0;
+            font-size: 1.4em;
+            color: #2C3E50;
         }
 
         .skill-item p {
-            font-size: 0.9em;
+            font-size: 1em;
             color: #666;
         }
 
@@ -235,11 +262,11 @@
 
         .portfolio-category h3 {
             text-align: center;
-            font-size: 2.5em;
-            color: #34495e;
-            margin-bottom: 50px;
+            font-size: 2.8em; /* Larger category title */
+            color: #34495E;
+            margin-bottom: 60px;
             position: relative;
-            padding-bottom: 15px;
+            padding-bottom: 20px;
         }
 
         .portfolio-category h3::after {
@@ -248,45 +275,45 @@
             left: 50%;
             bottom: 0;
             transform: translateX(-50%);
-            width: 80px;
-            height: 4px;
-            background-color: #3498db;
-            border-radius: 2px;
+            width: 100px; /* Wider underline */
+            height: 5px; /* Thicker underline */
+            background-color: #FF7043;
+            border-radius: 3px;
         }
 
         .project-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* Adaptive grid for projects */
-            gap: 40px;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); /* Adaptive grid for projects */
+            gap: 45px; /* Increased gap */
         }
 
         .project-item {
-            background-color: #ecf0f1; /* Light background for project cards */
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            background-color: #ECF0F1; /* Light background for project cards */
+            padding: 35px;
+            border-radius: 12px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.12); /* Softer, larger shadow */
             display: flex;
             flex-direction: column;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
         .project-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            transform: translateY(-8px); /* More lift */
+            box-shadow: 0 12px 30px rgba(0,0,0,0.2);
         }
 
         .project-item h4 {
-            color: #2c3e50;
-            font-size: 1.8em;
+            color: #2C3E50;
+            font-size: 1.9em;
             margin-top: 0;
-            margin-bottom: 10px;
+            margin-bottom: 12px;
         }
 
         .project-item p {
-            font-size: 1em;
+            font-size: 1.05em;
             color: #555;
-            margin-bottom: 15px;
-            flex-grow: 1; /* Ensures descriptions take up available space evenly */
+            margin-bottom: 18px;
+            flex-grow: 1;
         }
 
         .project-item p strong {
@@ -294,182 +321,231 @@
         }
 
         .project-links {
-            margin-top: auto; /* Pushes links to the bottom */
+            margin-top: auto;
+            padding-top: 15px; /* Space above links */
+            border-top: 1px solid #ECECEC; /* Subtle separator */
         }
 
         .project-links a {
-            display: inline-block; /* Makes links appear side-by-side if enough space */
-            margin-top: 8px;
-            margin-right: 15px; /* Space between multiple links */
-            padding: 5px 10px;
-            background-color: #3498db;
+            display: inline-block;
+            margin-top: 10px;
+            margin-right: 20px; /* More space between links */
+            padding: 8px 15px;
+            background-color: #55A8FF; /* A complementary blue for links */
             color: #fff;
-            border-radius: 4px;
-            font-size: 0.9em;
-            transition: background-color 0.3s ease;
+            border-radius: 6px;
+            font-size: 0.95em;
+            transition: background-color 0.3s ease, transform 0.2s ease;
         }
 
         .project-links a:hover {
-            background-color: #2980b9;
+            background-color: #3A8EE6;
+            transform: translateY(-2px);
             text-decoration: none;
         }
 
         /* About Section */
-        .about-section ul {
-            list-style: disc;
-            margin-left: 25px;
-            margin-bottom: 25px;
-            color: #444;
+        .about-section {
+            background-color: #F0F2F5;
         }
 
-        .about-section li {
-            margin-bottom: 10px;
-            font-size: 1.05em;
+        .about-section ul {
+            list-style: none; /* Remove default disc */
+            padding-left: 0;
+            margin-bottom: 30px;
+            color: #444;
+        }
+        .about-section ul li {
+            position: relative;
+            padding-left: 30px;
+            margin-bottom: 15px;
+            font-size: 1.1em;
+        }
+        .about-section ul li::before {
+            content: "\f00c"; /* Font Awesome checkmark icon */
+            font-family: "Font Awesome 5 Free";
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            color: #FF7043; /* Orange checkmark */
+            font-size: 1em;
+            top: 3px;
         }
 
         /* Contact Section */
         .contact-section {
-            background-color: #f9f9f9;
+            background-color: #fff;
             text-align: center;
         }
 
         .contact-info {
             margin-top: 30px;
             margin-bottom: 50px;
-            font-size: 1.2em;
+            font-size: 1.3em; /* Larger contact info */
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px 60px; /* Space between items */
         }
 
         .contact-info p {
-            margin-bottom: 12px;
+            margin: 0; /* Remove default margin */
+            display: flex;
+            align-items: center;
         }
 
         .contact-info i {
-            color: #3498db;
-            margin-right: 12px;
-            font-size: 1.3em;
+            color: #FF7043; /* Vibrant Orange */
+            margin-right: 15px;
+            font-size: 1.4em;
         }
 
         .contact-info a {
-            font-weight: 500;
+            font-weight: 600;
+            color: #2C3E50; /* Deep Blue for contact links */
+        }
+        .contact-info a:hover {
+            color: #FF7043;
+            text-decoration: none;
         }
 
         .contact-form {
-            max-width: 650px;
+            max-width: 700px; /* Wider form */
             margin: 0 auto;
             display: flex;
             flex-direction: column;
-            gap: 20px;
-            background-color: #fff;
-            padding: 40px;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            gap: 25px; /* More gap */
+            background-color: #F0F2F5; /* Light background for form */
+            padding: 50px; /* More padding */
+            border-radius: 15px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.1);
         }
 
         .contact-form input,
         .contact-form textarea {
-            padding: 18px;
+            padding: 20px; /* More padding */
             border: 1px solid #ddd;
-            border-radius: 8px;
-            font-size: 1.05em;
+            border-radius: 10px; /* More rounded */
+            font-size: 1.1em;
             width: 100%;
-            box-sizing: border-box; /* Ensures padding doesn't increase total width */
-            font-family: 'Roboto', sans-serif;
+            box-sizing: border-box;
+            font-family: 'Open Sans', sans-serif;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            border-color: #FF7043; /* Highlight on focus */
+            box-shadow: 0 0 0 3px rgba(255, 112, 67, 0.2);
+            outline: none;
         }
 
         .contact-form textarea {
-            resize: vertical; /* Allow vertical resizing */
-            min-height: 120px;
+            resize: vertical;
+            min-height: 150px;
         }
 
         .contact-form button {
             cursor: pointer;
             border: none;
-            font-size: 1.2em;
-            width: 200px; /* Fixed width for button */
-            align-self: center; /* Center the button */
-            padding: 15px;
+            font-size: 1.3em;
+            width: 220px; /* Larger button */
+            align-self: center;
+            padding: 16px;
         }
 
         /* Footer */
         footer {
-            background-color: #2c3e50;
+            background-color: #2C3E50;
             color: #fff;
             text-align: center;
-            padding: 25px 0;
-            margin-top: 30px;
-            border-radius: 10px;
-            font-size: 0.9em;
+            padding: 30px 0;
+            margin-top: 50px; /* More space above footer */
+            border-radius: 15px 15px 0 0; /* Rounded top corners */
+            font-size: 0.95em;
+            box-shadow: 0 -4px 15px rgba(0,0,0,0.15);
         }
 
-        /* Responsive Design for smaller screens */
+        /* Animations */
+        @keyframes fadeInScale {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        /* Responsive Design */
         @media (max-width: 992px) {
-            h1 { font-size: 2.8em; }
-            h2 { font-size: 2em; }
+            h1 { font-size: 3em; }
+            h2 { font-size: 2.2em; }
             .hero .container {
-                flex-direction: column; /* Stack hero content and video */
+                flex-direction: column;
                 text-align: center;
             }
-
             .hero-content {
                 text-align: center;
                 max-width: 100%;
             }
-
-            .hero-video {
-                width: 90%; /* Adjust video width for smaller screens */
-                max-width: 500px;
+            .hero-image-container {
+                margin-bottom: 30px; /* Space between image and text on small screens */
             }
-
+            .hero-video {
+                width: 95%;
+                margin-top: 30px;
+            }
             .skills-grid, .project-grid {
-                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Slightly smaller columns */
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             }
         }
 
         @media (max-width: 768px) {
             header .container {
-                flex-direction: column; /* Stack logo and nav vertically */
+                flex-direction: column;
                 text-align: center;
             }
-
             nav ul {
-                flex-direction: column; /* Stack nav items vertically */
+                flex-direction: column;
                 gap: 15px;
                 margin-top: 20px;
             }
-
             .logo {
                 margin-bottom: 15px;
             }
-
-            h1 { font-size: 2.2em; }
-            h2 { font-size: 1.8em; }
-            .hero { padding: 60px 0; }
-            section { padding: 50px 0; }
+            h1 { font-size: 2.5em; }
+            h2 { font-size: 2em; }
+            .hero { padding: 80px 0 50px 0; }
+            section { padding: 60px 0; }
 
             .skills-grid, .project-grid {
-                grid-template-columns: 1fr; /* Single column on very small screens */
+                grid-template-columns: 1fr;
             }
-
             .project-item {
-                padding: 25px;
+                padding: 30px;
             }
             .contact-form {
-                padding: 25px;
+                padding: 30px;
             }
             .contact-form button {
-                width: 180px;
+                width: 200px;
+            }
+            .contact-info {
+                flex-direction: column;
+                gap: 20px;
             }
         }
 
         @media (max-width: 480px) {
-            h1 { font-size: 1.8em; }
-            .hero-content .tagline { font-size: 1.2em; }
-            .hero-content .intro-text { font-size: 1em; }
-            .button { padding: 10px 20px; font-size: 0.9em; }
-            h2 { font-size: 1.6em; }
-            .portfolio-category h3 { font-size: 2em; margin-bottom: 30px;}
-            .skill-item i { font-size: 3em; }
-            .contact-info p { font-size: 1em; }
+            h1 { font-size: 2em; }
+            .hero-content .tagline { font-size: 1.4em; }
+            .hero-content .intro-text { font-size: 0.95em; }
+            .button { padding: 10px 20px; font-size: 1em; }
+            h2 { font-size: 1.8em; }
+            .portfolio-category h3 { font-size: 2.2em; margin-bottom: 30px;}
+            .skill-item i { font-size: 3.5em; }
+            .contact-info p { font-size: 1.1em; }
         }
     </style>
     <!-- INLINE CSS ENDS HERE -->
@@ -489,8 +565,21 @@
     </header>
 
     <main>
+        <!-- Home/Hero Section: Introduction, Picture, and Showreel -->
         <section id="home" class="hero">
             <div class="container">
+                <div class="hero-image-container">
+                    <!--
+                        TO ADD YOUR INTRO PICTURE:
+                        1. Upload your image (e.g., a professional headshot) directly to your GitHub repository.
+                           A good place would be a new folder like `images/`.
+                           Example: `ValentineN-portfolio/images/my-profile-pic.jpg`
+                        2. Replace `src="https://placehold.co/350x350/FF7043/FFF?text=Your+Photo"`
+                           with the actual path to your image: `src="images/my-profile-pic.jpg"`
+                        3. Make sure your image is square or will look good cropped into a circle.
+                    -->
+                    <img src="https://placehold.co/350x350/FF7043/FFF?text=Your+Photo" alt="Valentine Ngaruiya Profile Picture">
+                </div>
                 <div class="hero-content">
                     <h1>Valentine Ngaruiya: Digital Communications & Content Producer</h1>
                     <p class="tagline">Crafting compelling stories and strategic communications that inform, engage, and mobilize audiences across diverse platforms.</p>
@@ -498,21 +587,24 @@
                     <a href="#portfolio" class="button">Explore My Portfolio</a>
                 </div>
                 <div class="hero-video">
-                    <!-- EMBED YOUR GOOGLE DRIVE SHOWREEL IFRAME HERE -->
-                    <!-- This specific embed link for your Google Drive showreel (https://drive.google.com/file/d/1b9zPBVLf3tUP9DGxDCUWpHOWAk8Kz_JE/view?usp=drivesdk)
-                         is a sharing link, not an embed link. For it to work, you need the actual embed code.
-                         If using Google Drive:
-                         1. Open the video in Google Drive.
-                         2. Click the three dots (⋮) in the top-right and select "Open in new window".
-                         3. In the new window, click the three dots (⋮) again and select "Embed item...".
-                         4. Copy the entire <iframe> code and paste it below, replacing this placeholder.
-                         (Ensure the video is set to "Anyone with the link can view" in sharing settings).
+                    <!--
+                        IMPORTANT: For your Google Drive showreel (https://drive.google.com/file/d/1b9zPBVLf3tUP9DGxDCUWpHOWAk8Kz_JE/view?usp=drivesdk),
+                        you need to get the "embed item" iframe code directly from Google Drive,
+                        or upload it to YouTube/Vimeo for more reliable embedding.
+
+                        To get Google Drive embed code:
+                        1. Open the video in Google Drive.
+                        2. Click the three dots (⋮) (more actions) in the top-right and select "Open in new window".
+                        3. In the new window, click the three dots (⋮) again and select "Embed item...".
+                        4. Copy the entire <iframe> code and paste it below, replacing this placeholder.
+                        (Ensure the video is set to "Anyone with the link can view" in sharing settings).
                     -->
                     <iframe src="https://drive.google.com/embed?id=1b9zPBVLf3tUP9DGxDCUWpHOWAk8Kz_JE" frameborder="0" allowfullscreen></iframe>
                 </div>
             </div>
         </section>
 
+        <!-- Skills Section: Highlighting core competencies for communication roles -->
         <section id="skills" class="skills-section">
             <div class="container">
                 <h2>My Core Communication Skills</h2>
@@ -551,10 +643,12 @@
             </div>
         </section>
 
+        <!-- Portfolio Section: Showcase of Work Experiences -->
         <section id="portfolio" class="portfolio-section">
             <div class="container">
                 <h2>My Work Portfolio</h2>
 
+                <!-- Category: Digital Video Journalism & Advocacy -->
                 <div class="portfolio-category">
                     <h3>Digital Video Journalism & Advocacy</h3>
                     <div class="project-grid">
@@ -598,7 +692,6 @@
                             <h4>Social Media Strategy & Audience Engagement (Radio Africa Group)</h4>
                             <p><strong>Role:</strong> Digital Video Journalist (Mobile Journalism Fellowship with Meta)</p>
                             <p>Managed social media platforms to strategically promote content, engage with audiences, and drive traffic to digital properties. Partnered with Facebook for content distribution, leveraging platform features to enhance reach and impact. Successfully **increased viewer engagement by 30%** and achieved a **20% growth in subscriber base**, utilizing analytics to optimize content strategy and performance.</p>
-                            <p><em>(Consider describing specific campaigns, challenges, and your strategic approach here.)</em></p>
                             <div class="project-links">
                                 <a href="https://www.instagram.com/tv/CG91-Bvj1py/?utm_source=ig_web_copy_link" target="_blank" rel="noopener noreferrer">Intersex Persons (Instagram)</a>
                                 <a href="https://www.instagram.com/tv/CGiD9B_jRAY/?utm_source=ig_web_copy_link" target="_blank" rel="noopener noreferrer">Sandals (Instagram)</a>
@@ -614,6 +707,7 @@
                     </div>
                 </div>
 
+                <!-- Category: Visual Communication & Marketing Design -->
                 <div class="portfolio-category">
                     <h3>Visual Communication & Marketing Design</h3>
                     <div class="project-grid">
@@ -626,6 +720,7 @@
                     </div>
                 </div>
 
+                <!-- Category: Operational Communications & Stakeholder Coordination -->
                 <div class="portfolio-category">
                     <h3>Operational Communications & Stakeholder Coordination</h3>
                     <div class="project-grid">
@@ -641,6 +736,7 @@
             </div>
         </section>
 
+        <!-- About Section: Detailed Professional Background -->
         <section id="about" class="about-section">
             <div class="container">
                 <h2>About Me</h2>
@@ -665,6 +761,7 @@
             </div>
         </section>
 
+        <!-- Contact Section: Ways to Connect -->
         <section id="contact" class="contact-section">
             <div class="container">
                 <h2>Let's Connect</h2>
@@ -672,9 +769,11 @@
                 <div class="contact-info">
                     <p><i class="fas fa-envelope"></i> Email: <a href="mailto:Valentinewatati@gmail.com">Valentinewatati@gmail.com</a></p>
                     <p><i class="fas fa-phone"></i> Phone: +254723871172</p>
+                    <!-- Replace YOUR_LINKEDIN_URL with your actual LinkedIn profile link -->
                     <p><i class="fab fa-linkedin"></i> LinkedIn: <a href="https://www.linkedin.com/in/YOUR_LINKEDIN_PROFILE" target="_blank" rel="noopener noreferrer">Valentine Ngaruiya on LinkedIn</a></p>
                 </div>
 
+                <!-- Basic contact form (for demonstration, actual sending requires backend) -->
                 <form class="contact-form">
                     <input type="text" placeholder="Your Name" required>
                     <input type="email" placeholder="Your Email" required>
@@ -691,6 +790,10 @@
         </div>
     </footer>
 
+    <!--
+        The script.js file is still referenced but can remain empty or contain simple logic.
+        No complex JavaScript is currently needed for the layout or styling.
+    -->
     <script src="js/script.js"></script>
 </body>
 </html>
