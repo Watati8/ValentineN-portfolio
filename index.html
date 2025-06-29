@@ -44,11 +44,11 @@
 
         /* Specific font for H1 in Hero section */
         .hero-content h1 {
-            font-family: 'Playfair Display', serif; /* New elegant font for the main title */
+            font-family: 'Poppins', sans-serif; /* Reverted to Poppins */
             font-size: 4.8em; /* Adjusted: Slightly smaller for better balance */
             color: #FFFAFA;
             margin-bottom: 25px; /* Adjusted: Slightly less margin */
-            font-weight: 900; /* Bolder for Playfair Display */
+            font-weight: 800; /* Bolder for Poppins */
             line-height: 1.1;
             letter-spacing: -1px; /* Tighter letter spacing for h1 */
         }
@@ -260,22 +260,24 @@
             z-index: 2; /* Ensure content is above background elements */
         }
 
+        /* Fancier font for tagline */
         .hero-content .tagline {
-            font-family: 'Open Sans', sans-serif;
-            font-size: 2em; /* Adjusted: Slightly smaller for better flow */
-            color: #BBBBBB;
-            margin-bottom: 35px; /* Adjusted: Slightly less margin */
-            font-weight: 300;
-            line-height: 1.3; /* Adjusted: Slightly tighter line height for tagline */
+            font-family: 'Playfair Display', serif; /* New elegant font for tagline */
+            font-size: 2.5em; /* Increased size for impact */
+            color: #D4AF37; /* Gold color for tagline */
+            margin-bottom: 35px;
+            font-weight: 700; /* Bold weight for Playfair Display */
+            line-height: 1.3;
         }
 
         .hero-content .intro-text {
-            font-size: 1.1em; /* Adjusted: Slightly smaller for better readability */
-            margin-bottom: 45px; /* Adjusted: Slightly less margin */
+            font-size: 1.15em; /* Adjusted: Slightly larger for better readability */
+            margin-bottom: 45px;
             color: #C0C0C0;
-            line-height: 1.6; /* Adjusted: Standard line height */
+            line-height: 1.7; /* Slightly more spacious line height */
         }
 
+        /* Image as a box sitting on the side */
         .hero-image-container {
             flex: 1; /* Image takes remaining flex space */
             min-width: 300px;
@@ -283,7 +285,7 @@
             height: 100%; /* Occupy full height of .hero .container */
             border-radius: 0; /* No rounding */
             overflow: hidden;
-            box-shadow: 0 0 20px rgba(0,0,0,0.0); /* Removed shadow to make it frameless */
+            box-shadow: 0 0 0px rgba(0,0,0,0.0); /* Removed shadow to make it frameless */
             border: none; /* No border */
             animation: fadeInScale 1.5s ease-out forwards;
             transition: transform 0.4s ease, box-shadow 0.4s ease;
@@ -666,8 +668,14 @@
             }
             .hero-image-container {
                 margin-bottom: 50px; /* Space between image and text on small screens */
-                max-width: 90%; /* Adjust size for medium screens */
+                max-width: 90%; /* Take up most of the width on mobile */
                 height: 350px; /* Adjust height for medium screens */
+                border-radius: 15px; /* Revert to rounded corners on mobile */
+                box-shadow: 0 15px 40px rgba(0,0,0,0.35); /* Revert shadow on mobile */
+                border: 8px solid #B8860B; /* Revert border on mobile */
+            }
+            .hero-image-container img {
+                box-shadow: none; /* Remove inset shadow on mobile for consistency with border */
             }
             .skills-grid, .project-grid {
                 grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -905,14 +913,6 @@
                                 <a href="https://www.instagram.com/tv/CGiD9B_jRAY/?utm_source=ig_web_copy_link" target="_blank" rel="noopener noreferrer">Spotlight on Local Sandal Craftsmanship</a>
                                 <a href="https://www.instagram.com/tv/CGFKRuEgZsC/?utm_source=ig_web_copy_link" target="_blank" rel="noopener noreferrer">Promoting Sustainable Dry Initiative</a>
                                 <a href="https://fb.watch/1_n3DhA_3Q/" target="_blank" rel="noopener noreferrer">Engaging Content on Facebook Watch</a>
-                            </div>
-                        </div>
-
-                        <div class="project-item">
-                            <h4>Radio Africa Group: Campaigns & Features</h4>
-                            <p><strong>Role:</strong> Digital Video Journalist (Mobile Journalism Fellowship with Meta)</p>
-                            <p>Developed and executed digital campaigns for Radio Africa Group, focusing on promotional content and special features. Utilized mobile journalism techniques to produce engaging short-form videos and managed their distribution across social media to maximize reach and drive audience interaction.</p>
-                            <div class="project-links">
                                 <a href="https://www.instagram.com/tv/CFOt2kdHA7y/?utm_source=ig_web_copy_link" target="_blank" rel="noopener noreferrer">Kiss Staycation Promotional Video</a>
                                 <a href="https://www.instagram.com/tv/CFMgo1RHxKX/?utm_source=ig_web_copy_link" target="_blank" rel="noopener noreferrer">Capturing Kisses of Kindness Campaign</a>
                                 <a href="https://www.instagram.com/tv/CEel_lxCvZl/?utm_source=ig_web_copy_link" target="_blank" rel="noopener noreferrer">Highlights from Yetu Festival</a>
