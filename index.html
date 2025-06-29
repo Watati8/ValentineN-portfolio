@@ -107,11 +107,6 @@
             box-shadow: 0 15px 30px rgba(184, 134, 11, 0.6);
             text-decoration: none;
         }
-        .button:hover::before {
-            width: 200%;
-            height: 200%;
-            opacity: 1;
-        }
         .button:active {
             transform: translateY(-3px) scale(0.98);
             box-shadow: 0 5px 15px rgba(184, 134, 11, 0.3);
@@ -256,26 +251,28 @@
         }
 
         .hero-content h1 {
-            font-size: 5em; /* Even larger title */
+            font-size: 4.8em; /* Adjusted: Slightly smaller for better balance */
             color: #FFFAFA;
-            margin-bottom: 30px;
-            font-weight: 800; /* Bolder title */
+            margin-bottom: 25px; /* Adjusted: Slightly less margin */
+            font-weight: 800;
             line-height: 1.1;
+            letter-spacing: -1px; /* Tighter letter spacing for h1 */
         }
 
         .hero-content .tagline {
             font-family: 'Open Sans', sans-serif;
-            font-size: 2.2em; /* Larger tagline */
-            color: #BBBBBB; /* Slightly lighter text */
-            margin-bottom: 40px;
+            font-size: 2em; /* Adjusted: Slightly smaller for better flow */
+            color: #BBBBBB;
+            margin-bottom: 35px; /* Adjusted: Slightly less margin */
             font-weight: 300;
-            line-height: 1.4;
+            line-height: 1.3; /* Adjusted: Slightly tighter line height for tagline */
         }
 
         .hero-content .intro-text {
-            font-size: 1.2em; /* Slightly larger text */
-            margin-bottom: 50px;
+            font-size: 1.1em; /* Adjusted: Slightly smaller for better readability */
+            margin-bottom: 45px; /* Adjusted: Slightly less margin */
             color: #C0C0C0;
+            line-height: 1.6; /* Adjusted: Standard line height */
         }
 
         .hero-image-container {
@@ -285,7 +282,7 @@
             height: 100%; /* Occupy full height of .hero .container */
             border-radius: 0; /* No rounding */
             overflow: hidden;
-            box-shadow: 0 0 20px rgba(0,0,0,0.5); /* Subtle overall shadow, no distinct border */
+            box-shadow: 0 0 20px rgba(0,0,0,0.0); /* Removed shadow to make it frameless */
             border: none; /* No border */
             animation: fadeInScale 1.5s ease-out forwards;
             transition: transform 0.4s ease, box-shadow 0.4s ease;
@@ -293,8 +290,8 @@
             align-self: stretch; /* Ensure it stretches vertically */
         }
         .hero-image-container:hover {
-            transform: scale(1.01); /* Very subtle scale on hover */
-            box-shadow: 0 0 30px rgba(0,0,0,0.7);
+            transform: scale(1.00); /* No scale on hover */
+            box-shadow: 0 0 0px rgba(0,0,0,0.0); /* No shadow on hover */
             border-color: transparent; /* No border color change */
         }
         .hero-image-container img {
@@ -303,6 +300,8 @@
             display: block;
             object-fit: cover; /* Ensures image covers container without distortion */
             object-position: left; /* Aligns image to the left within its container */
+            /* Added subtle internal shadow for depth without a frame */
+            box-shadow: inset 0 0 20px rgba(0,0,0,0.5);
         }
 
         .hero-video {
@@ -773,10 +772,10 @@
                             with the relative path to your uploaded image, for example: `src="images/Screenshot 2025-06-29 at 14.51.55.jpg"`.
                         3.  The image will now appear as a box that tries to fill the side, with content next to it on larger screens.
                     -->
-                    <img src="images/valentine-profile.png" alt="Valentine Ngaruiya Profile Picture">
+                      <img src="images/valentine-profile.png" alt="Valentine Ngaruiya Profile Picture">
                 </div>
                 <div class="hero-content">
-                    <h1>Digital Communications & Content Producer</h1>
+                    <h1> Digital Communications & Content Producer</h1>
                     <p class="tagline">Crafting compelling stories and strategic communications that inform, engage, and mobilize audiences across diverse platforms.</p>
                     <p class="intro-text">I am a multi-platform digital content producer with a strong track record of creating engaging, purpose-driven stories and effective communication strategies. Skilled in video production, visual storytelling, social media management, and cross-cultural communications. I excel at translating complex information and social issues into accessible and impactful content, from comprehensive political coverage to human rights advocacy. A fast learner and collaborative professional, I bring an adaptable mindset to digital campaigning and a deep passion for leveraging media as a force for positive change across Africa.</p>
                     <a href="#portfolio" class="button">Explore My Portfolio</a>
