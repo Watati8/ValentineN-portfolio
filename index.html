@@ -190,6 +190,10 @@
             position: relative;
             overflow: hidden;
             color: #E0E0E0;
+            min-height: 80vh; /* Ensure hero section is tall enough */
+            display: flex;
+            align-items: center; /* Center content vertically */
+            justify-content: center;
         }
 
         /* Hero section background elements (more creative) */
@@ -230,18 +234,25 @@
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            align-items: center;
-            gap: 80px; /* Increased gap */
+            align-items: stretch; /* Allow children to stretch vertically */
+            gap: 0; /* No gap as image will sit on side */
             position: relative;
             z-index: 1;
+            height: 100%; /* Take full height of hero section */
+            padding: 0; /* Remove container padding here, control inside flex items */
         }
 
         .hero-content {
-            flex: 2;
-            min-width: 350px;
-            max-width: 700px; /* Wider content area */
+            flex: 1.5; /* Content takes less space than image for split effect */
+            min-width: 400px; /* Minimum width for content */
+            max-width: 600px;
             text-align: left;
-            padding: 20px;
+            padding: 40px; /* Add internal padding */
+            display: flex;
+            flex-direction: column;
+            justify-content: center; /* Center content vertically within its flex item */
+            align-items: flex-start; /* Align text to start */
+            z-index: 2; /* Ensure content is above background elements */
         }
 
         .hero-content h1 {
@@ -268,29 +279,30 @@
         }
 
         .hero-image-container {
-            flex: 1.2; /* Give it slightly more flex space to be wider */
+            flex: 1; /* Image takes remaining flex space */
             min-width: 300px;
-            max-width: 550px; /* Make it wider */
-            height: 400px; /* More rectangular height for desktop */
-            border-radius: 15px; /* Keep some rounding for elegance, but not 50% */
+            max-width: 50%; /* Image takes up to 50% of the container width */
+            height: 100%; /* Occupy full height of .hero .container */
+            border-radius: 0; /* No rounding */
             overflow: hidden;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.5); /* Stronger, more artistic shadow */
-            border: 10px solid #B8860B; /* Thicker gold accent border */
-            animation: fadeInScale 1.5s ease-out forwards; /* Simple entry animation */
+            box-shadow: 0 0 20px rgba(0,0,0,0.5); /* Subtle overall shadow, no distinct border */
+            border: none; /* No border */
+            animation: fadeInScale 1.5s ease-out forwards;
             transition: transform 0.4s ease, box-shadow 0.4s ease;
             position: relative;
+            align-self: stretch; /* Ensure it stretches vertically */
         }
         .hero-image-container:hover {
-            transform: scale(1.03) rotate(0deg); /* Subtle scale on hover, no rotation */
-            box-shadow: 0 25px 60px rgba(0,0,0,0.6);
-            border-color: #D4AF37; /* Lighter gold on hover */
+            transform: scale(1.01); /* Very subtle scale on hover */
+            box-shadow: 0 0 30px rgba(0,0,0,0.7);
+            border-color: transparent; /* No border color change */
         }
         .hero-image-container img {
             width: 100%;
             height: 100%;
             display: block;
             object-fit: cover; /* Ensures image covers container without distortion */
-            object-position: center; /* Center the image within the container */
+            object-position: left; /* Aligns image to the left within its container */
         }
 
         .hero-video {
@@ -650,10 +662,11 @@
             .hero-content {
                 text-align: center;
                 max-width: 100%;
+                padding: 20px; /* Adjust padding for smaller screens */
             }
             .hero-image-container {
                 margin-bottom: 50px; /* Space between image and text on small screens */
-                max-width: 450px; /* Adjust size for medium screens */
+                max-width: 90%; /* Adjust size for medium screens */
                 height: 350px; /* Adjust height for medium screens */
             }
             .skills-grid, .project-grid {
@@ -680,7 +693,7 @@
             h1 { font-size: 3em; }
             h2 { font-size: 2.5em; margin-bottom: 50px;}
             section { padding: 80px 0; margin-bottom: 50px;}
-            .hero { padding: 120px 0 90px 0; }
+            .hero { padding: 100px 0 70px 0; min-height: unset; } /* Adjust hero padding/height */
 
             .skills-grid, .project-grid {
                 grid-template-columns: 1fr;
@@ -705,6 +718,7 @@
             .hero-image-container {
                 max-width: 90%; /* Take up most of the width on mobile */
                 height: 300px; /* Adjust height for mobile */
+                box-shadow: 0 0 15px rgba(0,0,0,0.4); /* Smaller shadow on mobile */
             }
         }
 
@@ -721,9 +735,8 @@
             .contact-form textarea { padding: 20px; font-size: 1.05em; }
             .project-item h4 { font-size: 2em; }
             .hero-image-container {
-                max-width: 280px;
-                height: 280px;
-                border-width: 6px;
+                max-width: 95%; /* Even wider on very small screens */
+                height: 250px; /* Adjust height */
             }
             .logo { font-size: 2em; }
             nav ul { gap: 15px; }
@@ -758,7 +771,7 @@
                             Commit the changes.
                         2.  **Update the `src` below:** Replace `https://placehold.co/350x350/FF7043/FFF?text=Your+Photo`
                             with the relative path to your uploaded image, for example: `src="images/Screenshot 2025-06-29 at 14.51.55.jpg"`.
-                        3.  Make sure your image is square or will look good cropped into a box.
+                        3.  The image will now appear as a box that tries to fill the side, with content next to it on larger screens.
                     -->
                     <img src="images/valentine-profile.png" alt="Valentine Ngaruiya Profile Picture">
                 </div>
