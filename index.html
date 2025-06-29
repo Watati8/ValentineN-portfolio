@@ -44,7 +44,7 @@
 
         /* Specific font for H1 in Hero section */
         .hero-content h1 {
-            font-family: 'Poppins', sans-serif; /* Reverted to Poppins */
+            font-family: 'Poppins', sans-serif; /* Poppins for the main title */
             font-size: 4.8em; /* Adjusted: Slightly smaller for better balance */
             color: #FFFAFA;
             margin-bottom: 25px; /* Adjusted: Slightly less margin */
@@ -666,13 +666,14 @@
                 max-width: 100%;
                 padding: 20px; /* Adjust padding for smaller screens */
             }
+            /* Mobile styles for image container - make it a nice, contained box */
             .hero-image-container {
                 margin-bottom: 50px; /* Space between image and text on small screens */
                 max-width: 90%; /* Take up most of the width on mobile */
                 height: 350px; /* Adjust height for medium screens */
-                border-radius: 15px; /* Revert to rounded corners on mobile */
-                box-shadow: 0 15px 40px rgba(0,0,0,0.35); /* Revert shadow on mobile */
-                border: 8px solid #B8860B; /* Revert border on mobile */
+                border-radius: 15px; /* Rounded corners for elegance on mobile */
+                box-shadow: 0 15px 40px rgba(0,0,0,0.35); /* Shadow for depth on mobile */
+                border: 8px solid #B8860B; /* Gold border on mobile */
             }
             .hero-image-container img {
                 box-shadow: none; /* Remove inset shadow on mobile for consistency with border */
