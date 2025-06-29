@@ -4,20 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Valentine Ngaruiya - Digital Communications & Content Producer</title>
-    <!-- Google Fonts for a modern, creative look -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
-    <!-- Font Awesome for professional icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
-    <!-- INLINE CSS STARTS HERE - ALL YOUR STYLES ARE NOW DIRECTLY IN THIS FILE -->
     <style>
         /* General Styling & Typography */
         body {
             margin: 0;
             font-family: 'Open Sans', sans-serif; /* Body text font */
-            line-height: 1.6;
-            color: #4A4A4A; /* Darker grey for readability */
-            background-color: #F8F9FA; /* Off-white background */
+            line-height: 1.7; /* Slightly more spacious line height */
+            color: #333; /* Darker grey for better contrast */
+            background: linear-gradient(135deg, #F8F9FA 0%, #E0E4E7 100%); /* Soft, subtle gradient background */
             scroll-behavior: smooth; /* Smooth scrolling for anchor links */
         }
 
@@ -29,56 +26,74 @@
 
         h1, h2, h3, h4 {
             font-family: 'Poppins', sans-serif; /* Headings font */
-            color: #2C3E50; /* Deep Blue */
-            margin-bottom: 15px;
+            color: #2A3B4D; /* Deeper Blue-Grey */
+            margin-bottom: 18px;
             line-height: 1.2;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.05); /* Subtle text shadow for depth */
         }
 
-        h1 { font-size: 3.5em; } /* Larger for main title */
-        h2 { font-size: 2.5em; text-align: center; margin-bottom: 50px; color: #34495E; } /* Centered section titles */
-        h3 { font-size: 1.8em; }
-        h4 { font-size: 1.5em; }
+        h1 { font-size: 3.8em; } /* Larger for main title */
+        h2 { font-size: 2.8em; text-align: center; margin-bottom: 60px; color: #34495E; position: relative; } /* Centered section titles */
+        h2::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 6px;
+            background: linear-gradient(90deg, #FF7043, #E64A19); /* Gradient underline */
+            margin: 20px auto 0;
+            border-radius: 3px;
+        }
+        h3 { font-size: 2em; }
+        h4 { font-size: 1.6em; }
 
         a {
             color: #FF7043; /* Vibrant Orange for links */
             text-decoration: none;
-            transition: color 0.3s ease;
+            transition: color 0.3s ease, transform 0.2s ease;
         }
 
         a:hover {
-            text-decoration: underline;
             color: #E64A19; /* Darker orange on hover */
+            text-decoration: underline;
+            transform: translateY(-1px);
         }
 
         .button {
             display: inline-block;
-            background-color: #FF7043; /* Vibrant Orange */
+            background: linear-gradient(45deg, #FF7043 0%, #E64A19 100%); /* Orange gradient */
             color: #fff;
-            padding: 14px 30px;
-            border-radius: 8px; /* More rounded */
+            padding: 16px 35px; /* More generous padding */
+            border-radius: 10px; /* More rounded */
             text-decoration: none;
-            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+            transition: all 0.3s ease;
             font-weight: 600;
-            box-shadow: 0 6px 12px rgba(255, 112, 67, 0.3); /* Orange-tinted shadow */
-            letter-spacing: 0.5px;
+            box-shadow: 0 8px 20px rgba(255, 112, 67, 0.4); /* Stronger, orange-tinted shadow */
+            letter-spacing: 0.8px;
+            text-transform: uppercase;
+            border: none;
+            cursor: pointer;
         }
 
         .button:hover {
-            background-color: #E64A19;
-            transform: translateY(-3px); /* More lift effect */
-            box-shadow: 0 8px 16px rgba(255, 112, 67, 0.4);
+            background: linear-gradient(45deg, #E64A19 0%, #FF7043 100%); /* Invert gradient on hover */
+            transform: translateY(-5px) scale(1.02); /* More pronounced lift and slight scale */
+            box-shadow: 0 12px 25px rgba(255, 112, 67, 0.5);
             text-decoration: none;
+        }
+        .button:active {
+            transform: translateY(-2px) scale(0.99);
+            box-shadow: 0 4px 10px rgba(255, 112, 67, 0.3);
         }
 
         /* Header & Navigation */
         header {
             background-color: #2C3E50; /* Deep Blue header */
             color: #fff;
-            padding: 15px 0;
+            padding: 18px 0; /* More padding */
             position: sticky;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.25); /* Stronger header shadow */
         }
 
         header .container {
@@ -89,11 +104,12 @@
 
         .logo {
             font-family: 'Poppins', sans-serif;
-            font-size: 1.9em;
-            font-weight: 700;
+            font-size: 2.2em; /* Slightly larger logo */
+            font-weight: 800; /* Bolder logo */
             color: #fff;
             flex-shrink: 0;
-            letter-spacing: 1px;
+            letter-spacing: 1.5px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
         }
 
         nav ul {
@@ -101,74 +117,138 @@
             margin: 0;
             padding: 0;
             display: flex; /* Makes nav items go side-by-side */
-            gap: 30px; /* Increased space */
+            gap: 40px; /* Increased space between nav items */
         }
 
         nav ul li a {
             color: #fff;
             font-weight: 600;
-            padding: 8px 0;
-            transition: color 0.3s ease, border-bottom 0.3s ease;
+            padding: 10px 0; /* More padding for hover area */
+            position: relative;
+            transition: all 0.3s ease;
+            letter-spacing: 0.7px;
+        }
+
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            width: 0%;
+            height: 3px;
+            bottom: 0;
+            left: 0;
+            background: linear-gradient(90deg, #FF7043, #E64A19); /* Gradient underline */
+            transition: width 0.3s ease-out;
+            border-radius: 2px;
         }
 
         nav ul li a:hover {
-            color: #FF7043; /* Vibrant Orange on hover */
+            color: #FFDDC0; /* Lighter orange for hover */
             text-decoration: none;
-            border-bottom: 3px solid #FF7043; /* Thicker underline effect */
+        }
+        nav ul li a:hover::after {
+            width: 100%;
         }
 
         /* Hero Section */
         .hero {
-            background: linear-gradient(to bottom right, #ECF0F1, #DCE4E6); /* Soft gradient background */
-            padding: 120px 0 80px 0; /* More padding top, less bottom */
+            background: linear-gradient(to top left, #ECF0F1, #DCE4E6); /* Softer, dynamic gradient */
+            padding: 140px 0 100px 0; /* Even more padding */
             text-align: center;
+            position: relative;
+            overflow: hidden; /* For any background elements */
         }
+
+        /* Hero section background elements (more creative) */
+        .hero::before, .hero::after {
+            content: '';
+            position: absolute;
+            background-color: rgba(255, 112, 67, 0.08); /* Transparent orange circles */
+            border-radius: 50%;
+            z-index: 0;
+            filter: blur(80px); /* Blur for soft effect */
+        }
+        .hero::before {
+            width: 300px;
+            height: 300px;
+            top: -50px;
+            left: -50px;
+            animation: moveCircle1 15s infinite alternate;
+        }
+        .hero::after {
+            width: 400px;
+            height: 400px;
+            bottom: -100px;
+            right: -100px;
+            background-color: rgba(44, 62, 80, 0.08); /* Transparent blue circle */
+            animation: moveCircle2 18s infinite alternate-reverse;
+        }
+
+        @keyframes moveCircle1 {
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(50px, 50px) scale(1.1); }
+        }
+        @keyframes moveCircle2 {
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(-50px, -50px) scale(1.1); }
+        }
+
 
         .hero .container {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
             align-items: center;
-            gap: 60px; /* Increased gap */
+            gap: 70px; /* Increased gap */
+            position: relative; /* Ensure content is above pseudo-elements */
+            z-index: 1;
         }
 
         .hero-content {
             flex: 2;
             min-width: 320px;
-            max-width: 650px;
+            max-width: 680px; /* Wider content area */
             text-align: left;
+            padding: 20px;
         }
 
         .hero-content h1 {
-            font-size: 4em; /* Even larger title */
+            font-size: 4.5em; /* Even larger title */
             color: #2C3E50;
             margin-bottom: 25px;
+            font-weight: 800; /* Bolder title */
         }
 
         .hero-content .tagline {
             font-family: 'Open Sans', sans-serif;
-            font-size: 1.8em; /* Larger tagline */
+            font-size: 2em; /* Larger tagline */
             color: #5A5A5A;
-            margin-bottom: 30px;
-            font-weight: 400;
+            margin-bottom: 35px;
+            font-weight: 300; /* Lighter weight for balance */
+            line-height: 1.4;
         }
 
         .hero-content .intro-text {
-            font-size: 1.1em;
-            margin-bottom: 40px;
+            font-size: 1.15em; /* Slightly larger text */
+            margin-bottom: 45px;
             color: #666;
         }
 
         .hero-image-container {
             flex: 1;
-            min-width: 280px;
-            max-width: 350px;
+            min-width: 300px;
+            max-width: 400px; /* Larger image container */
             border-radius: 50%; /* Make it circular */
             overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.25); /* Stronger shadow */
-            border: 5px solid #FF7043; /* Accent border */
-            animation: fadeInScale 1s ease-out; /* Simple entry animation */
+            box-shadow: 0 15px 40px rgba(0,0,0,0.35); /* Stronger, more artistic shadow */
+            border: 8px solid #FF7043; /* Thicker accent border */
+            animation: fadeInScale 1.2s ease-out forwards; /* Simple entry animation */
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
+        .hero-image-container:hover {
+            transform: scale(1.03); /* Subtle scale on hover */
+            box-shadow: 0 20px 50px rgba(0,0,0,0.45);
+        }
+
 
         .hero-image-container img {
             width: 100%;
@@ -178,172 +258,23 @@
         }
 
         .hero-video {
-            flex: 1;
-            min-width: 320px;
-            max-width: 560px;
-            position: relative;
-            /* No padding-bottom here if removing the iframe completely, will adjust based on need */
-            height: auto; /* Changed from 0 if no video is present */
-            overflow: hidden;
-            border-radius: 15px; /* More rounded corners */
-            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-            margin-top: 40px; /* Space between intro text/image and video */
-            display: none; /* Hide if no video */
+            display: none; /* Removed as requested */
         }
 
-        .hero-video iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
 
         /* General Section Styling */
         section {
-            padding: 80px 0;
+            padding: 100px 0; /* More padding */
             background-color: #fff;
-            margin-bottom: 40px; /* More space between sections */
-            border-radius: 15px; /* More rounded section corners */
-            box-shadow: 0 8px 30px rgba(0,0,0,0.1); /* Soft, larger shadow */
+            margin-bottom: 60px; /* More space between sections */
+            border-radius: 20px; /* More rounded section corners */
+            box-shadow: 0 10px 40px rgba(0,0,0,0.15); /* Soft, larger shadow */
+            border: 1px solid #ECEFF1; /* Subtle border */
+        }
+        section:last-of-type {
+            margin-bottom: 0; /* No margin for the last section */
         }
 
-        /* Skills Section */
-        .skills-section {
-            background-color: #F0F2F5; /* Slightly darker background for this section */
-        }
-
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Adaptive grid columns */
-            gap: 35px; /* Increased gap */
-            text-align: center;
-        }
-
-        .skill-item {
-            background-color: #fff;
-            padding: 40px; /* More padding */
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            border-bottom: 4px solid #FF7043; /* Accent border bottom */
-        }
-
-        .skill-item:hover {
-            transform: translateY(-10px); /* More pronounced lift */
-            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-            background-color: #FFFDE7; /* Light yellow tint on hover */
-        }
-
-        .skill-item i {
-            font-size: 4em; /* Larger icons */
-            color: #FF7043; /* Vibrant Orange */
-            margin-bottom: 25px;
-        }
-
-        .skill-item h3 {
-            margin: 0 0 12px 0;
-            font-size: 1.4em;
-            color: #2C3E50;
-        }
-
-        .skill-item p {
-            font-size: 1em;
-            color: #666;
-        }
-
-        /* Portfolio Section */
-        .portfolio-category {
-            margin-bottom: 80px;
-        }
-
-        .portfolio-category h3 {
-            text-align: center;
-            font-size: 2.8em; /* Larger category title */
-            color: #34495E;
-            margin-bottom: 60px;
-            position: relative;
-            padding-bottom: 20px;
-        }
-
-        .portfolio-category h3::after {
-            content: '';
-            position: absolute;
-            left: 50%;
-            bottom: 0;
-            transform: translateX(-50%);
-            width: 100px; /* Wider underline */
-            height: 5px; /* Thicker underline */
-            background-color: #FF7043;
-            border-radius: 3px;
-        }
-
-        .project-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); /* Adaptive grid for projects */
-            gap: 45px; /* Increased gap */
-        }
-
-        .project-item {
-            background-color: #ECF0F1; /* Light background for project cards */
-            padding: 35px;
-            border-radius: 12px;
-            box-shadow: 0 6px 20px rgba(0,0,0,0.12); /* Softer, larger shadow */
-            display: flex;
-            flex-direction: column;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .project-item:hover {
-            transform: translateY(-8px); /* More lift */
-            box-shadow: 0 12px 30px rgba(0,0,0,0.2);
-        }
-
-        .project-item h4 {
-            color: #2C3E50;
-            font-size: 1.9em;
-            margin-top: 0;
-            margin-bottom: 12px;
-        }
-
-        .project-item p {
-            font-size: 1.05em;
-            color: #555;
-            margin-bottom: 18px;
-            flex-grow: 1;
-        }
-
-        .project-item p strong {
-            color: #333;
-        }
-
-        .project-links {
-            margin-top: auto;
-            padding-top: 15px; /* Space above links */
-            border-top: 1px solid #ECECEC; /* Subtle separator */
-        }
-
-        .project-links a {
-            display: inline-block;
-            margin-top: 10px;
-            margin-right: 20px; /* More space between links */
-            padding: 8px 15px;
-            background-color: #55A8FF; /* A complementary blue for links */
-            color: #fff;
-            border-radius: 6px;
-            font-size: 0.95em;
-            transition: background-color 0.3s ease, transform 0.2s ease;
-        }
-
-        .project-links a:hover {
-            background-color: #3A8EE6;
-            transform: translateY(-2px);
-            text-decoration: none;
-        }
 
         /* About Section */
         .about-section {
@@ -353,14 +284,18 @@
         .about-section ul {
             list-style: none; /* Remove default disc */
             padding-left: 0;
-            margin-bottom: 30px;
+            margin-bottom: 40px; /* More space */
             color: #444;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Grid for list items */
+            gap: 20px; /* Space between list items */
         }
         .about-section ul li {
             position: relative;
-            padding-left: 30px;
-            margin-bottom: 15px;
-            font-size: 1.1em;
+            padding-left: 35px; /* More room for icon */
+            margin-bottom: 10px;
+            font-size: 1.15em; /* Slightly larger text */
+            line-height: 1.5;
         }
         .about-section ul li::before {
             content: "\f00c"; /* Font Awesome checkmark icon */
@@ -369,89 +304,267 @@
             position: absolute;
             left: 0;
             color: #FF7043; /* Orange checkmark */
-            font-size: 1em;
-            top: 3px;
+            font-size: 1.1em;
+            top: 2px;
+        }
+        .about-section h3 {
+            font-size: 2.2em;
+            margin-top: 50px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        .about-section p {
+            font-size: 1.1em;
+            margin-bottom: 25px;
+        }
+
+        /* Skills Section */
+        .skills-section {
+            background: linear-gradient(135deg, #FFF 0%, #F5F7F8 100%); /* Light gradient */
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Adaptive grid columns */
+            gap: 40px; /* Increased gap */
+            text-align: center;
+        }
+
+        .skill-item {
+            background-color: #fff;
+            padding: 45px; /* More padding */
+            border-radius: 15px; /* More rounded */
+            box-shadow: 0 6px 20px rgba(0,0,0,0.1); /* Softer shadow */
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            border-bottom: 5px solid #FF7043; /* Thicker accent border bottom */
+            position: relative;
+            overflow: hidden;
+        }
+        .skill-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 10% 10%, rgba(255, 112, 67, 0.05) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+
+        .skill-item:hover {
+            transform: translateY(-12px); /* More pronounced lift */
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+            background-color: #FFFDF7; /* Very light subtle background */
+        }
+        .skill-item:hover::before {
+            opacity: 1;
+        }
+
+        .skill-item i {
+            font-size: 4.5em; /* Larger icons */
+            color: #FF7043; /* Vibrant Orange */
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 5px rgba(255, 112, 67, 0.2); /* Subtle icon shadow */
+        }
+
+        .skill-item h3 {
+            margin: 0 0 15px 0;
+            font-size: 1.5em;
+            color: #2C3E50;
+        }
+
+        .skill-item p {
+            font-size: 1.05em;
+            color: #666;
+        }
+
+        /* Portfolio Section */
+        .portfolio-category {
+            margin-bottom: 90px; /* More space */
+        }
+
+        .portfolio-category h3 {
+            text-align: center;
+            font-size: 3em; /* Larger category title */
+            color: #34495E;
+            margin-bottom: 60px;
+            position: relative;
+            padding-bottom: 25px;
+        }
+
+        .portfolio-category h3::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: 0;
+            transform: translateX(-50%);
+            width: 120px; /* Wider underline */
+            height: 6px; /* Thicker underline */
+            background: linear-gradient(90deg, #55A8FF, #3A8EE6); /* Blue gradient underline */
+            border-radius: 3px;
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); /* Adaptive grid for projects */
+            gap: 50px; /* Increased gap */
+        }
+
+        .project-item {
+            background-color: #ECF0F1; /* Light background for project cards */
+            padding: 40px; /* More padding */
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15); /* Softer, larger shadow */
+            display: flex;
+            flex-direction: column;
+            transition: all 0.3s ease;
+            border: 1px solid #DDE4E6; /* Subtle border */
+        }
+
+        .project-item:hover {
+            transform: translateY(-10px); /* More lift */
+            box-shadow: 0 18px 40px rgba(0,0,0,0.25);
+            background-color: #F6F9FA; /* Slightly lighter on hover */
+        }
+
+        .project-item h4 {
+            color: #2C3E50;
+            font-size: 2em; /* Larger project title */
+            margin-top: 0;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .project-item p {
+            font-size: 1.1em;
+            color: #555;
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+
+        .project-item p strong {
+            color: #333;
+            font-weight: 600;
+        }
+
+        .project-links {
+            margin-top: auto;
+            padding-top: 20px; /* Space above links */
+            border-top: 1px solid #E0E0E0; /* More distinct separator */
+            display: flex;
+            flex-wrap: wrap; /* Allow links to wrap */
+            gap: 15px 25px; /* More controlled spacing */
+        }
+
+        .project-links a {
+            display: inline-block;
+            padding: 10px 18px; /* More padding */
+            background: linear-gradient(45deg, #55A8FF 0%, #3A8EE6 100%); /* A complementary blue gradient for links */
+            color: #fff;
+            border-radius: 8px; /* More rounded */
+            font-size: 0.98em;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(58, 142, 230, 0.2);
+        }
+
+        .project-links a:hover {
+            background: linear-gradient(45deg, #3A8EE6 0%, #55A8FF 100%); /* Invert gradient on hover */
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 6px 15px rgba(58, 142, 230, 0.3);
+            text-decoration: none;
         }
 
         /* Contact Section */
         .contact-section {
-            background-color: #fff;
+            background: linear-gradient(to bottom, #FFF 0%, #F5F7F8 100%);
             text-align: center;
         }
 
         .contact-info {
-            margin-top: 30px;
-            margin-bottom: 50px;
-            font-size: 1.3em; /* Larger contact info */
+            margin-top: 40px;
+            margin-bottom: 60px;
+            font-size: 1.4em; /* Larger contact info */
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            gap: 30px 60px; /* Space between items */
+            gap: 40px 70px; /* More space between items */
         }
 
         .contact-info p {
             margin: 0; /* Remove default margin */
             display: flex;
             align-items: center;
+            font-weight: 600;
+            color: #4A4A4A;
         }
 
         .contact-info i {
             color: #FF7043; /* Vibrant Orange */
-            margin-right: 15px;
-            font-size: 1.4em;
+            margin-right: 18px; /* More space */
+            font-size: 1.6em; /* Larger icons */
         }
 
         .contact-info a {
-            font-weight: 600;
+            font-weight: 700;
             color: #2C3E50; /* Deep Blue for contact links */
+            transition: color 0.3s ease;
         }
         .contact-info a:hover {
             color: #FF7043;
-            text-decoration: none;
+            text-decoration: underline;
         }
 
         .contact-form {
-            max-width: 700px; /* Wider form */
+            max-width: 750px; /* Wider form */
             margin: 0 auto;
             display: flex;
             flex-direction: column;
-            gap: 25px; /* More gap */
+            gap: 30px; /* More gap */
             background-color: #F0F2F5; /* Light background for form */
-            padding: 50px; /* More padding */
-            border-radius: 15px;
-            box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+            padding: 60px; /* More padding */
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+            border: 1px solid #E0E4E6;
         }
 
         .contact-form input,
         .contact-form textarea {
-            padding: 20px; /* More padding */
-            border: 1px solid #ddd;
-            border-radius: 10px; /* More rounded */
-            font-size: 1.1em;
+            padding: 22px; /* More padding */
+            border: 1px solid #DDE4E6;
+            border-radius: 12px; /* More rounded */
+            font-size: 1.15em;
             width: 100%;
             box-sizing: border-box;
             font-family: 'Open Sans', sans-serif;
+            background-color: #fff;
             transition: border-color 0.3s ease, box-shadow 0.3s ease;
         }
         .contact-form input:focus,
         .contact-form textarea:focus {
             border-color: #FF7043; /* Highlight on focus */
-            box-shadow: 0 0 0 3px rgba(255, 112, 67, 0.2);
+            box-shadow: 0 0 0 4px rgba(255, 112, 67, 0.2);
             outline: none;
+            background-color: #FFFDE7; /* Light yellow tint on focus */
         }
 
         .contact-form textarea {
             resize: vertical;
-            min-height: 150px;
+            min-height: 180px; /* Taller textarea */
         }
 
         .contact-form button {
             cursor: pointer;
             border: none;
-            font-size: 1.3em;
-            width: 220px; /* Larger button */
+            font-size: 1.4em;
+            width: 250px; /* Larger button */
             align-self: center;
-            padding: 16px;
+            padding: 18px;
         }
 
         /* Footer */
@@ -459,18 +572,22 @@
             background-color: #2C3E50;
             color: #fff;
             text-align: center;
-            padding: 30px 0;
-            margin-top: 50px; /* More space above footer */
-            border-radius: 15px 15px 0 0; /* Rounded top corners */
-            font-size: 0.95em;
-            box-shadow: 0 -4px 15px rgba(0,0,0,0.15);
+            padding: 35px 0; /* More padding */
+            margin-top: 70px; /* More space above footer */
+            border-radius: 20px 20px 0 0; /* Rounded top corners */
+            font-size: 1em;
+            box-shadow: 0 -6px 20px rgba(0,0,0,0.2);
+        }
+        footer p {
+            margin: 0;
+            letter-spacing: 0.5px;
         }
 
         /* Animations */
         @keyframes fadeInScale {
             from {
                 opacity: 0;
-                transform: scale(0.8);
+                transform: scale(0.7);
             }
             to {
                 opacity: 1;
@@ -480,8 +597,8 @@
 
         /* Responsive Design */
         @media (max-width: 992px) {
-            h1 { font-size: 3em; }
-            h2 { font-size: 2.2em; }
+            h1 { font-size: 3.2em; }
+            h2 { font-size: 2.5em; }
             .hero .container {
                 flex-direction: column;
                 text-align: center;
@@ -491,14 +608,13 @@
                 max-width: 100%;
             }
             .hero-image-container {
-                margin-bottom: 30px; /* Space between image and text on small screens */
-            }
-            .hero-video {
-                width: 95%;
-                margin-top: 30px;
+                margin-bottom: 40px; /* Space between image and text on small screens */
             }
             .skills-grid, .project-grid {
                 grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            }
+            .about-section ul {
+                grid-template-columns: 1fr;
             }
         }
 
@@ -509,64 +625,84 @@
             }
             nav ul {
                 flex-direction: column;
-                gap: 15px;
-                margin-top: 20px;
+                gap: 18px;
+                margin-top: 25px;
             }
             .logo {
-                margin-bottom: 15px;
+                margin-bottom: 20px;
             }
-            h1 { font-size: 2.5em; }
-            h2 { font-size: 2em; }
-            .hero { padding: 80px 0 50px 0; }
-            section { padding: 60px 0; }
+            h1 { font-size: 2.8em; }
+            h2 { font-size: 2.2em; margin-bottom: 40px;}
+            section { padding: 70px 0; margin-bottom: 40px;}
+            .hero { padding: 100px 0 70px 0; }
 
             .skills-grid, .project-grid {
                 grid-template-columns: 1fr;
             }
             .project-item {
-                padding: 30px;
+                padding: 35px;
             }
             .contact-form {
-                padding: 30px;
+                padding: 40px;
             }
             .contact-form button {
-                width: 200px;
+                width: 220px;
+                font-size: 1.2em;
             }
             .contact-info {
                 flex-direction: column;
-                gap: 20px;
+                gap: 25px;
+                font-size: 1.2em;
             }
+            .hero-content .tagline { font-size: 1.6em; }
+            .hero-content .intro-text { font-size: 1em; }
         }
 
         @media (max-width: 480px) {
-            h1 { font-size: 2em; }
-            .hero-content .tagline { font-size: 1.4em; }
-            .hero-content .intro-text { font-size: 0.95em; }
-            .button { padding: 10px 20px; font-size: 1em; }
+            h1 { font-size: 2.2em; }
+            .hero-content .tagline { font-size: 1.3em; }
+            .hero-content .intro-text { font-size: 0.9em; }
+            .button { padding: 12px 25px; font-size: 0.95em; }
             h2 { font-size: 1.8em; }
-            .portfolio-category h3 { font-size: 2.2em; margin-bottom: 30px;}
-            .skill-item i { font-size: 3.5em; }
-            .contact-info p { font-size: 1.1em; }
+            .portfolio-category h3 { font-size: 2.5em; margin-bottom: 30px;}
+            .skill-item i { font-size: 3.8em; }
+            .contact-info p { font-size: 1em; }
+            .contact-form input,
+            .contact-form textarea { padding: 18px; font-size: 1em; }
+            .project-item h4 { font-size: 1.8em; }
         }
     </style>
-    <!-- INLINE CSS ENDS HERE -->
-</head>
+    </head>
 <body>
 
     <header>
         <nav class="container">
             <a href="index.html" class="logo">Valentine Ngaruiya</a>
             <ul>
-                <li><a href="#about">About</a></li> <!-- Changed order -->
                 <li><a href="#home">Home</a></li>
-                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#about">About</a></li> <li><a href="#portfolio">Portfolio</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
     </header>
 
     <main>
-        <!-- About Section: Detailed Professional Background (NOW FIRST) -->
+        <section id="home" class="hero">
+            <div class="container">
+                <div class="hero-image-container">
+                    <img src="https://placehold.co/350x350/FF7043/FFF?text=Your+Photo" alt="Valentine Ngaruiya Profile Picture">
+                </div>
+                <div class="hero-content">
+                    <h1>Valentine Ngaruiya: Digital Communications & Content Producer</h1>
+                    <p class="tagline">Crafting compelling stories and strategic communications that inform, engage, and mobilize audiences across diverse platforms.</p>
+                    <p class="intro-text">I am a multi-platform digital content producer with a strong track record of creating engaging, purpose-driven stories and effective communication strategies. Skilled in video production, visual storytelling, social media management, and cross-cultural communications. I excel at translating complex information and social issues into accessible and impactful content, from comprehensive political coverage to human rights advocacy. A fast learner and collaborative professional, I bring an adaptable mindset to digital campaigning and a deep passion for leveraging media as a force for positive change across Africa.</p>
+                    <a href="#portfolio" class="button">Explore My Portfolio</a>
+                </div>
+                <div class="hero-video" style="display: none;">
+                    </div>
+            </div>
+        </section>
+
         <section id="about" class="about-section">
             <div class="container">
                 <h2>About Me</h2>
@@ -591,37 +727,7 @@
             </div>
         </section>
 
-        <!-- Home/Hero Section: Introduction, Picture, and Showreel -->
-        <section id="home" class="hero">
-            <div class="container">
-                <div class="hero-image-container">
-                    <!--
-                        TO ADD YOUR INTRO PICTURE:
-                        1. Upload your image (e.g., a professional headshot) directly to your GitHub repository.
-                           A good place would be a new folder like `images/`.
-                           Example: `ValentineN-portfolio/images/my-profile-pic.jpg`
-                        2. Replace `src="https://placehold.co/350x350/FF7043/FFF?text=Your+Photo"`
-                           with the actual path to your image: `src="images/my-profile-pic.jpg"`
-                        3. Make sure your image is square or will look good cropped into a circle.
-                    -->
-                    <img src="https://placehold.co/350x350/FF7043/FFF?text=Your+Photo" alt="Valentine Ngaruiya Profile Picture">
-                </div>
-                <div class="hero-content">
-                    <h1>Valentine Ngaruiya: Digital Communications & Content Producer</h1>
-                    <p class="tagline">Crafting compelling stories and strategic communications that inform, engage, and mobilize audiences across diverse platforms.</p>
-                    <p class="intro-text">I am a multi-platform digital content producer with a strong track record of creating engaging, purpose-driven stories and effective communication strategies. Skilled in video production, visual storytelling, social media management, and cross-cultural communications. I excel at translating complex information and social issues into accessible and impactful content, from comprehensive political coverage to human rights advocacy. A fast learner and collaborative professional, I bring an adaptable mindset to digital campaigning and a deep passion for leveraging media as a force for positive change across Africa.</p>
-                    <a href="#portfolio" class="button">Explore My Portfolio</a>
-                </div>
-                <div class="hero-video" style="display: none;">
-                    <!-- The Google Drive showreel iframe has been removed as per your request.
-                         You can add a video here if you have an embed code from YouTube or Vimeo.
-                         Example: <iframe src="https://www.youtube.com/embed/YOUR_YOUTUBE_VIDEO_ID" frameborder="0" allowfullscreen></iframe>
-                    -->
-                </div>
-            </div>
-        </section>
 
-        <!-- Skills Section: Highlighting core competencies for communication roles -->
         <section id="skills" class="skills-section">
             <div class="container">
                 <h2>My Core Communication Skills</h2>
@@ -660,12 +766,10 @@
             </div>
         </section>
 
-        <!-- Portfolio Section: Showcase of Work Experiences -->
         <section id="portfolio" class="portfolio-section">
             <div class="container">
                 <h2>My Work Portfolio</h2>
 
-                <!-- Category: Digital Video Journalism & Advocacy -->
                 <div class="portfolio-category">
                     <h3>Digital Video Journalism & Advocacy</h3>
                     <div class="project-grid">
@@ -724,7 +828,6 @@
                     </div>
                 </div>
 
-                <!-- Category: Visual Communication & Marketing Design -->
                 <div class="portfolio-category">
                     <h3>Visual Communication & Marketing Design</h3>
                     <div class="project-grid">
@@ -737,7 +840,6 @@
                     </div>
                 </div>
 
-                <!-- Category: Operational Communications & Stakeholder Coordination -->
                 <div class="portfolio-category">
                     <h3>Operational Communications & Stakeholder Coordination</h3>
                     <div class="project-grid">
@@ -753,7 +855,6 @@
             </div>
         </section>
 
-        <!-- Contact Section: Ways to Connect -->
         <section id="contact" class="contact-section">
             <div class="container">
                 <h2>Let's Connect</h2>
@@ -761,11 +862,9 @@
                 <div class="contact-info">
                     <p><i class="fas fa-envelope"></i> Email: <a href="mailto:Valentinewatati@gmail.com">Valentinewatati@gmail.com</a></p>
                     <p><i class="fas fa-phone"></i> Phone: +254723871172</p>
-                    <!-- Replace YOUR_LINKEDIN_URL with your actual LinkedIn profile link -->
                     <p><i class="fab fa-linkedin"></i> LinkedIn: <a href="https://www.linkedin.com/in/YOUR_LINKEDIN_PROFILE" target="_blank" rel="noopener noreferrer">Valentine Ngaruiya on LinkedIn</a></p>
                 </div>
 
-                <!-- Basic contact form (for demonstration, actual sending requires backend) -->
                 <form class="contact-form">
                     <input type="text" placeholder="Your Name" required>
                     <input type="email" placeholder="Your Email" required>
@@ -778,14 +877,10 @@
 
     <footer>
         <div class="container">
-            <p>&copy; 2025 Valentine Ngaruiya. All rights reserved.</p>
+            <p>© 2025 Valentine Ngaruiya. All rights reserved.</p>
         </div>
     </footer>
 
-    <!--
-        The script.js file is still referenced but can remain empty or contain simple logic.
-        No complex JavaScript is currently needed for the layout or styling.
-    -->
     <script src="js/script.js"></script>
 </body>
 </html>
