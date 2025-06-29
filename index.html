@@ -182,12 +182,13 @@
             min-width: 320px;
             max-width: 560px;
             position: relative;
-            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
-            height: 0;
+            /* No padding-bottom here if removing the iframe completely, will adjust based on need */
+            height: auto; /* Changed from 0 if no video is present */
             overflow: hidden;
             border-radius: 15px; /* More rounded corners */
             box-shadow: 0 10px 25px rgba(0,0,0,0.2);
             margin-top: 40px; /* Space between intro text/image and video */
+            display: none; /* Hide if no video */
         }
 
         .hero-video iframe {
@@ -556,15 +557,40 @@
         <nav class="container">
             <a href="index.html" class="logo">Valentine Ngaruiya</a>
             <ul>
+                <li><a href="#about">About</a></li> <!-- Changed order -->
                 <li><a href="#home">Home</a></li>
                 <li><a href="#portfolio">Portfolio</a></li>
-                <li><a href="#about">About</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
     </header>
 
     <main>
+        <!-- About Section: Detailed Professional Background (NOW FIRST) -->
+        <section id="about" class="about-section">
+            <div class="container">
+                <h2>About Me</h2>
+                <p>Hello! I'm Valentine Ngaruiya, a passionate and results-driven digital communications and content producer based in Nairobi, Kenya. My career is dedicated to harnessing the power of media to craft impactful stories, drive engagement, and inspire positive change across diverse African contexts and beyond.</p>
+
+                <p>My expertise is rooted in a comprehensive understanding of multi-platform content creation, visual storytelling, and strategic communication. I thrive on the challenge of taking intricate subjects—from political landscapes to human rights issues—and transforming them into accessible, compelling narratives that resonate with and mobilize target audiences.</p>
+
+                <h3>Education</h3>
+                <ul>
+                    <li><strong>MULTIMEDIA UNIVERSITY, KENYA</strong> - Bachelor of Film Production and Animation (May 2016 - December 2020)</li>
+                    <li><strong>ALX AFRICA, KENYA</strong> - AI CAREER ESSENTIALS (May 2024 - July 2024)</li>
+                </ul>
+
+                <h3>Languages</h3>
+                <ul>
+                    <li>English (Fluent)</li>
+                    <li>Kiswahili (Fluent)</li>
+                </ul>
+
+                <h3>What I Bring to Your Team</h3>
+                <p>I am a fast learner, highly adaptable, and a strong proponent of collaborative environments. My approach to digital campaigning is always strategic and impact-focused, driven by a genuine passion for using media as a force for good. I am committed to delivering high-quality, impactful content that not only meets but exceeds communication objectives.</p>
+            </div>
+        </section>
+
         <!-- Home/Hero Section: Introduction, Picture, and Showreel -->
         <section id="home" class="hero">
             <div class="container">
@@ -586,20 +612,11 @@
                     <p class="intro-text">I am a multi-platform digital content producer with a strong track record of creating engaging, purpose-driven stories and effective communication strategies. Skilled in video production, visual storytelling, social media management, and cross-cultural communications. I excel at translating complex information and social issues into accessible and impactful content, from comprehensive political coverage to human rights advocacy. A fast learner and collaborative professional, I bring an adaptable mindset to digital campaigning and a deep passion for leveraging media as a force for positive change across Africa.</p>
                     <a href="#portfolio" class="button">Explore My Portfolio</a>
                 </div>
-                <div class="hero-video">
-                    <!--
-                        IMPORTANT: For your Google Drive showreel (https://drive.google.com/file/d/1b9zPBVLf3tUP9DGxDCUWpHOWAk8Kz_JE/view?usp=drivesdk),
-                        you need to get the "embed item" iframe code directly from Google Drive,
-                        or upload it to YouTube/Vimeo for more reliable embedding.
-
-                        To get Google Drive embed code:
-                        1. Open the video in Google Drive.
-                        2. Click the three dots (⋮) (more actions) in the top-right and select "Open in new window".
-                        3. In the new window, click the three dots (⋮) again and select "Embed item...".
-                        4. Copy the entire <iframe> code and paste it below, replacing this placeholder.
-                        (Ensure the video is set to "Anyone with the link can view" in sharing settings).
+                <div class="hero-video" style="display: none;">
+                    <!-- The Google Drive showreel iframe has been removed as per your request.
+                         You can add a video here if you have an embed code from YouTube or Vimeo.
+                         Example: <iframe src="https://www.youtube.com/embed/YOUR_YOUTUBE_VIDEO_ID" frameborder="0" allowfullscreen></iframe>
                     -->
-                    <iframe src="https://drive.google.com/embed?id=1b9zPBVLf3tUP9DGxDCUWpHOWAk8Kz_JE" frameborder="0" allowfullscreen></iframe>
                 </div>
             </div>
         </section>
@@ -657,10 +674,10 @@
                             <p><strong>Role:</strong> Digital Video Journalist</p>
                             <p>Produced, filmed, and edited high-quality digital videos covering significant political events, including the Kenya Election 2022. Ensured accurate, impartial, and timely journalistic standards while adapting content for maximum impact across various social platforms.</p>
                             <div class="project-links">
-                                <a href="https://www.instagram.com/reel/ChS2l1ulsXH/?igshid=YmMyMTA2M2Y=" target="_blank" rel="noopener noreferrer">President Announcement (Instagram)</a>
-                                <a href="https://www.instagram.com/tv/Cgjy0vTlCgc/?igshid=YmMyMTA2M2Y=" target="_blank" rel="noopener noreferrer">Youths in Kenya on Voting (Instagram)</a>
-                                <a href="https://www.instagram.com/tv/Cgjy0vTlCgc/?igshid=YmMyMTA2M2Y=" target="_blank" rel="noopener noreferrer">Voting Day Kenya (Instagram)</a>
-                                <a href="https://www.instagram.com/reel/ChS2l1ulsXH/?igshid=YmMyMTA2M2Y=" target="_blank" rel="noopener noreferrer">William Ruto on corruption (BBC News - Link validation needed for specific video)</a>
+                                <a href="https://www.instagram.com/reel/ChS2l1ulsXH/?igshid=YmMyMTA2M2Y=" target="_blank" rel="noopener noreferrer">Witnessing Presidential Announcements</a>
+                                <a href="https://www.instagram.com/tv/Cgjy0vTlCgc/?igshid=YmMyMTA2M2Y=" target="_blank" rel="noopener noreferrer">Youth Perspectives on Kenyan Voting</a>
+                                <a href="https://www.instagram.com/tv/Cgjy0vTlCgc/?igshid=YmMyMTA2M2Y=" target="_blank" rel="noopener noreferrer">Capturing Kenya's Voting Day</a>
+                                <a href="https://www.instagram.com/reel/ChS2l1ulsXH/?igshid=YmMyMTA2M2Y=" target="_blank" rel="noopener noreferrer">Investigating Corruption with William Ruto (BBC)</a>
                             </div>
                         </div>
 
@@ -669,9 +686,9 @@
                             <p><strong>Role:</strong> Digital Video Journalist</p>
                             <p>Translated complex social issues and conflict situations into accessible and compelling digital content. Focused on human rights advocacy, ensuring messages resonated with and mobilized diverse audiences, including those from various African language services.</p>
                             <div class="project-links">
-                                <a href="https://youtu.be/tEOml5bc3HU" target="_blank" rel="noopener noreferrer">DRC Conflict (YouTube)</a>
-                                <a href="https://twitter.com/bbcafrica/status/1581252069779853314?s=46&t=WulHitDTcZ3VfjJEaGkhMg" target="_blank" rel="noopener noreferrer">Jean Marimba (Twitter)</a>
-                                <a href="https://twitter.com/bbcafrica/status/1566007365199167488?s=46&t=WulHitDTcZ3VfjJEaGkhMg" target="_blank" rel="noopener noreferrer">Mauritius Hero (Twitter)</a>
+                                <a href="https://youtu.be/tEOml5bc3HU" target="_blank" rel="noopener noreferrer">Unpacking the DRC Conflict</a>
+                                <a href="https://twitter.com/bbcafrica/status/1581252069779853314?s=46&t=WulHitDTcZ3VfjJEaGkhMg" target="_blank" rel="noopener noreferrer">Jean Marimba: A Profile in Resilience</a>
+                                <a href="https://twitter.com/bbcafrica/status/1566007365199167488?s=46&t=WulHitDTcZ3VfjJEaGkhMg" target="_blank" rel="noopener noreferrer">Mauritius Hero: Celebrating Local Impact</a>
                             </div>
                         </div>
 
@@ -680,11 +697,11 @@
                             <p><strong>Role:</strong> Digital Video Journalist</p>
                             <p>Demonstrated versatility in creating engaging digital content on a wide range of topics, from cultural events to lifestyle features. Utilized visual creativity, graphics, and compelling storytelling techniques to illustrate and explain diverse narratives effectively.</p>
                             <div class="project-links">
-                                <a href="https://www.instagram.com/reel/ChuX1xDMgve/?igshid=YmMyMTA2M2Y=" target="_blank" rel="noopener noreferrer">Grain Shipment (Instagram)</a>
-                                <a href="https://www.instagram.com/tv/CdqUy2LIM3Q/?igshid=YmMyMTA2M2Y=" target="_blank" rel="noopener noreferrer">Sabrina Elba (Instagram)</a>
-                                <a href="https://www.instagram.com/reel/Ck2yF9xIkGQ/?igshid=YmMyMTA2M2Y=" target="_blank" rel="noopener noreferrer">Samburu (Instagram)</a>
-                                <a href="https://www.instagram.com/tv/ChNFry90BIC/?igshid=YmMyMTA2M2Y=" target="_blank" rel="noopener noreferrer">Africa Fashion (Instagram)</a>
-                                <a href="https://youtu.be/tEOml5bc3HU" target="_blank" rel="noopener noreferrer">Floating Book Fair Ghana (YouTube - Link validation needed)</a>
+                                <a href="https://www.instagram.com/reel/ChuX1xDMgve/?igshid=YmMyMTA2M2Y=" target="_blank" rel="noopener noreferrer">Highlighting the Grain Shipment Journey</a>
+                                <a href="https://www.instagram.com/tv/CdqUy2LIM3Q/?igshid=YmMyMTA2M2Y=" target="_blank" rel="noopener noreferrer">Interview with Sabrina Elba</a>
+                                <a href="https://www.instagram.com/reel/Ck2yF9xIkGQ/?igshid=YmMyMTA2M2Y=" target="_blank" rel="noopener noreferrer">Exploring Samburu Traditions</a>
+                                <a href="https://www.instagram.com/tv/ChNFry90BIC/?igshid=YmMyMTA2M2Y=" target="_blank" rel="noopener noreferrer">Celebrating African Fashion</a>
+                                <a href="https://youtu.be/tEOml5bc3HU" target="_blank" rel="noopener noreferrer">Ghana's Floating Book Fair Story</a>
                             </div>
                         </div>
 
@@ -693,15 +710,15 @@
                             <p><strong>Role:</strong> Digital Video Journalist (Mobile Journalism Fellowship with Meta)</p>
                             <p>Managed social media platforms to strategically promote content, engage with audiences, and drive traffic to digital properties. Partnered with Facebook for content distribution, leveraging platform features to enhance reach and impact. Successfully **increased viewer engagement by 30%** and achieved a **20% growth in subscriber base**, utilizing analytics to optimize content strategy and performance.</p>
                             <div class="project-links">
-                                <a href="https://www.instagram.com/tv/CG91-Bvj1py/?utm_source=ig_web_copy_link" target="_blank" rel="noopener noreferrer">Intersex Persons (Instagram)</a>
-                                <a href="https://www.instagram.com/tv/CGiD9B_jRAY/?utm_source=ig_web_copy_link" target="_blank" rel="noopener noreferrer">Sandals (Instagram)</a>
-                                <a href="https://www.instagram.com/tv/CGFKRuEgZsC/?utm_source=ig_web_copy_link" target="_blank" rel="noopener noreferrer">Sustainable Dry Initiative (Instagram)</a>
-                                <a href="https://fb.watch/1_n3DhA_3Q/" target="_blank" rel="noopener noreferrer">Facebook Watch Link</a>
-                                <a href="https://www.instagram.com/tv/CFOt2kdHA7y/?utm_source=ig_web_copy_link" target="_blank" rel="noopener noreferrer">Kiss Staycation (Instagram)</a>
-                                <a href="https://www.instagram.com/tv/CFMgo1RHxKX/?utm_source=ig_web_copy_link" target="_blank" rel="noopener noreferrer">Kisses of Kindness (Instagram)</a>
-                                <a href="https://www.instagram.com/tv/CEel_lxCvZl/?utm_source=ig_web_copy_link" target="_blank" rel="noopener noreferrer">Yetu Festival (Instagram)</a>
-                                <a href="https://www.instagram.com/tv/CD_ZD_gAvNK/?utm_source=ig_web_copy_link" target="_blank" rel="noopener noreferrer">Pads Story (Instagram)</a>
-                                <a href="https://instagram.com/tv/CKTCgEnnBjj/" target="_blank" rel="noopener noreferrer">Mamito (Instagram)</a>
+                                <a href="https://www.instagram.com/tv/CG91-Bvj1py/?utm_source=ig_web_copy_link" target="_blank" rel="noopener noreferrer">Advocacy for Intersex Persons</a>
+                                <a href="https://www.instagram.com/tv/CGiD9B_jRAY/?utm_source=ig_web_copy_link" target="_blank" rel="noopener noreferrer">Spotlight on Local Sandal Craftsmanship</a>
+                                <a href="https://www.instagram.com/tv/CGFKRuEgZsC/?utm_source=ig_web_copy_link" target="_blank" rel="noopener noreferrer">Promoting Sustainable Dry Initiative</a>
+                                <a href="https://fb.watch/1_n3DhA_3Q/" target="_blank" rel="noopener noreferrer">Engaging Content on Facebook Watch</a>
+                                <a href="https://www.instagram.com/tv/CFOt2kdHA7y/?utm_source=ig_web_copy_link" target="_blank" rel="noopener noreferrer">Kiss Staycation Promotional Video</a>
+                                <a href="https://www.instagram.com/tv/CFMgo1RHxKX/?utm_source=ig_web_copy_link" target="_blank" rel="noopener noreferrer">Capturing Kisses of Kindness Campaign</a>
+                                <a href="https://www.instagram.com/tv/CEel_lxCvZl/?utm_source=ig_web_copy_link" target="_blank" rel="noopener noreferrer">Highlights from Yetu Festival</a>
+                                <a href="https://www.instagram.com/tv/CD_ZD_gAvNK/?utm_source=ig_web_copy_link" target="_blank" rel="noopener noreferrer">The Impactful Pads Story</a>
+                                <a href="https://instagram.com/tv/CKTCgEnnBjj/" target="_blank" rel="noopener noreferrer">Feature with Comedian Mamito</a>
                             </div>
                         </div>
                     </div>
@@ -733,31 +750,6 @@
                     </div>
                 </div>
 
-            </div>
-        </section>
-
-        <!-- About Section: Detailed Professional Background -->
-        <section id="about" class="about-section">
-            <div class="container">
-                <h2>About Me</h2>
-                <p>Hello! I'm Valentine Ngaruiya, a passionate and results-driven digital communications and content producer based in Nairobi, Kenya. My career is dedicated to harnessing the power of media to craft impactful stories, drive engagement, and inspire positive change across diverse African contexts and beyond.</p>
-
-                <p>My expertise is rooted in a comprehensive understanding of multi-platform content creation, visual storytelling, and strategic communication. I thrive on the challenge of taking intricate subjects—from political landscapes to human rights issues—and transforming them into accessible, compelling narratives that resonate with and mobilize target audiences.</p>
-
-                <h3>Education</h3>
-                <ul>
-                    <li><strong>MULTIMEDIA UNIVERSITY, KENYA</strong> - Bachelor of Film Production and Animation (May 2016 - December 2020)</li>
-                    <li><strong>ALX AFRICA, KENYA</strong> - AI CAREER ESSENTIALS (May 2024 - July 2024)</li>
-                </ul>
-
-                <h3>Languages</h3>
-                <ul>
-                    <li>English (Fluent)</li>
-                    <li>Kiswahili (Fluent)</li>
-                </ul>
-
-                <h3>What I Bring to Your Team</h3>
-                <p>I am a fast learner, highly adaptable, and a strong proponent of collaborative environments. My approach to digital campaigning is always strategic and impact-focused, driven by a genuine passion for using media as a force for good. I am committed to delivering high-quality, impactful content that not only meets but exceeds communication objectives.</p>
             </div>
         </section>
 
