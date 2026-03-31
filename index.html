@@ -3,88 +3,75 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Valentine Ngaruiya | Digital Communications & Strategy</title>
+    <title>Valentine Ngaruiya | Communications & Digital Storytelling</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root {
-            --primary: #1a1a1a;
-            --accent: #d63031; /* Breaking News Red */
-            --blue: #0984e3;
-            --light: #f5f6fa;
-            --text: #2f3640;
-            --transition: all 0.3s ease;
+            --primary: #0a0a0a;
+            --accent: #d63031;
+            --gray: #636e72;
+            --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; }
-        body { background-color: #fff; color: var(--text); line-height: 1.6; overflow-x: hidden; }
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 25px; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', -apple-system, sans-serif; }
+        body { background-color: var(--primary); color: #fff; line-height: 1.7; overflow-x: hidden; }
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
 
         /* --- BREAKING NEWS TICKER --- */
         .ticker-wrap {
-            width: 100%; overflow: hidden; background: var(--primary);
-            color: white; padding: 12px 0; position: fixed; top: 0; z-index: 2000;
-            border-bottom: 3px solid var(--accent);
+            width: 100%; background: var(--accent); color: white; padding: 10px 0;
+            position: fixed; top: 0; z-index: 2000; font-size: 0.8rem; font-weight: 800;
+            text-transform: uppercase; letter-spacing: 1px;
         }
         .ticker { display: inline-block; white-space: nowrap; animation: ticker 40s linear infinite; }
-        .ticker-item { display: inline-block; padding: 0 40px; font-weight: 800; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 1px; }
-        .ticker-item span { color: var(--accent); margin-right: 10px; }
+        .ticker-item { display: inline-block; padding: 0 40px; }
         @keyframes ticker { 0% { transform: translateX(100%); } 100% { transform: translateX(-100%); } }
 
         /* --- NAVIGATION --- */
-        nav { background: white; padding: 70px 0 20px; box-shadow: 0 2px 15px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 1000; }
+        nav { background: rgba(10, 10, 10, 0.95); backdrop-filter: blur(10px); padding: 55px 0 20px; position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid #222; }
         .nav-content { display: flex; justify-content: space-between; align-items: center; }
-        .logo { font-weight: 900; font-size: 1.6rem; letter-spacing: -1px; display: flex; align-items: center; }
-        .live-dot { height: 12px; width: 12px; background: var(--accent); border-radius: 50%; margin-right: 10px; animation: pulse 1.5s infinite; }
-        .nav-links a { text-decoration: none; color: var(--text); margin-left: 25px; font-weight: 700; font-size: 0.9rem; text-transform: uppercase; }
+        .logo { font-weight: 900; font-size: 1.3rem; letter-spacing: -0.5px; }
+        .live-dot { height: 10px; width: 10px; background: var(--accent); border-radius: 50%; display: inline-block; margin-right: 10px; animation: pulse 2s infinite; }
 
-        /* --- HERO & GLOBE --- */
-        .hero { 
-            padding: 120px 0; background: radial-gradient(circle at center, #2d3436 0%, #000000 100%);
-            color: white; text-align: center; position: relative; overflow: hidden;
+        /* --- HERO: THE NARRATIVE HUB --- */
+        .hero { padding: 120px 0 80px; text-align: center; position: relative; }
+        .profile-img {
+            width: 220px; height: 220px; margin: 0 auto 30px; border-radius: 50%;
+            border: 4px solid var(--accent); 
+            background: url('images/valentine-profile.png') center/cover no-repeat;
+            box-shadow: 0 0 40px rgba(214, 48, 49, 0.3); position: relative; z-index: 2;
         }
-        .globe-bg {
-            position: absolute; top: 10%; left: 35%; font-size: 300px; color: rgba(255,255,255,0.05);
-            animation: rotateGlobe 30s linear infinite; z-index: 0; pointer-events: none;
-        }
-        .hero-content { position: relative; z-index: 1; }
-        .hero h1 { font-size: 4.5rem; text-transform: uppercase; line-height: 0.9; margin-bottom: 25px; font-weight: 900; }
-        .hero p { font-size: 1.3rem; max-width: 750px; margin: 0 auto 40px; color: #b2bec3; }
+        .hero h1 { font-size: 3.5rem; font-weight: 900; letter-spacing: -1.5px; margin-bottom: 15px; text-transform: uppercase; }
+        .hero p { font-size: 1.15rem; color: #b2bec3; max-width: 750px; margin: 0 auto 40px; }
 
-        /* --- SKILLS SECTION --- */
-        .section-title { margin: 80px 0 50px; font-size: 2.5rem; text-transform: uppercase; border-left: 10px solid var(--accent); padding-left: 20px; }
-        .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
-        .skill-card { padding: 40px; border: 1px solid #eee; transition: var(--transition); background: var(--light); }
-        .skill-card:hover { background: white; border-color: var(--accent); transform: translateY(-5px); box-shadow: 10px 10px 0px var(--accent); }
-        .skill-card i { font-size: 2rem; color: var(--accent); margin-bottom: 20px; }
+        /* --- CORE PILLARS --- */
+        .pillar-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-bottom: 80px; }
+        .pillar-card { background: #161616; padding: 40px; border: 1px solid #222; transition: var(--transition); }
+        .pillar-card:hover { border-color: var(--accent); transform: translateY(-8px); background: #1c1c1c; }
+        .pillar-card i { font-size: 2rem; color: var(--accent); margin-bottom: 25px; }
+        .pillar-card h3 { margin-bottom: 15px; text-transform: uppercase; font-size: 1.1rem; letter-spacing: 1px; }
 
-        /* --- PORTFOLIO CATEGORIES --- */
-        .category-header { background: var(--primary); color: white; padding: 15px 25px; margin: 60px 0 30px; display: inline-block; font-weight: 800; text-transform: uppercase; letter-spacing: 2px; }
-        .project-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px; }
-        .project-card { border: 1px solid #ddd; padding: 30px; position: relative; transition: var(--transition); display: flex; flex-direction: column; }
-        .project-card:hover { border-color: var(--accent); box-shadow: 8px 8px 0px rgba(214, 48, 49, 0.1); }
-        .role-tag { color: var(--accent); font-weight: 800; font-size: 0.75rem; text-transform: uppercase; margin-bottom: 10px; display: block; }
-        .project-card h4 { font-size: 1.4rem; margin-bottom: 15px; line-height: 1.2; }
-        .project-card p { font-size: 0.95rem; color: #636e72; margin-bottom: 20px; flex-grow: 1; }
+        /* --- PROJECT GRID --- */
+        .section-header { margin: 80px 0 50px; text-align: center; }
+        .section-header h2 { font-size: 2.2rem; text-transform: uppercase; font-weight: 900; border-bottom: 4px solid var(--accent); display: inline-block; padding-bottom: 5px; }
         
-        .links-container { display: flex; flex-wrap: wrap; gap: 10px; margin-top: auto; }
-        .link-btn { 
-            text-decoration: none; color: var(--primary); background: #f0f0f0; 
-            padding: 8px 15px; font-size: 0.8rem; font-weight: 700; border-radius: 4px; transition: var(--transition);
-        }
-        .link-btn:hover { background: var(--accent); color: white; }
+        .project-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 30px; }
+        .project-card { background: #111; border-left: 5px solid var(--accent); padding: 35px; transition: var(--transition); height: 100%; display: flex; flex-direction: column; }
+        .project-card:hover { background: #1a1a1a; box-shadow: 15px 15px 0px rgba(214, 48, 49, 0.05); }
+        .role-date { color: var(--accent); font-weight: 800; font-size: 0.75rem; text-transform: uppercase; margin-bottom: 15px; display: block; }
+        .project-card p { font-size: 0.9rem; color: #bdc3c7; margin-bottom: 25px; flex-grow: 1; }
 
-        /* --- CONTACT --- */
-        .contact-section { background: var(--primary); color: white; padding: 100px 0; margin-top: 100px; }
-        .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
-        .contact-btn { background: var(--accent); color: white; padding: 18px 40px; border: none; font-weight: 900; text-transform: uppercase; cursor: pointer; transition: var(--transition); }
-        .contact-btn:hover { background: #ff4757; transform: scale(1.05); }
+        /* --- BUTTONS --- */
+        .btn { display: inline-block; padding: 15px 35px; text-decoration: none; font-weight: 900; text-transform: uppercase; font-size: 0.85rem; transition: 0.3s; }
+        .btn-primary { background: var(--accent); color: #fff; }
+        .btn-primary:hover { background: #fff; color: #000; transform: scale(1.05); }
+        .btn-small { background: #222; color: #fff; padding: 8px 18px; font-size: 0.7rem; margin-right: 8px; }
 
         @keyframes pulse { 0% { opacity: 1; } 50% { opacity: 0.3; } 100% { opacity: 1; } }
-        @keyframes rotateGlobe { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+        @keyframes ticker { 0% { transform: translateX(100%); } 100% { transform: translateX(-100%); } }
 
         @media (max-width: 768px) {
-            .hero h1 { font-size: 2.8rem; }
-            .contact-grid { grid-template-columns: 1fr; }
+            .hero h1 { font-size: 2.5rem; }
         }
     </style>
 </head>
@@ -92,158 +79,81 @@
 
     <div class="ticker-wrap">
         <div class="ticker">
-            <div class="ticker-item"><span>LIVE:</span> VALENTINE NGARUIYA PORTFOLIO TRANSMISSION</div>
-            <div class="ticker-item"><span>BREAKING:</span> 30% INCREASE IN VIEWER ENGAGEMENT ACHIEVED</div>
-            <div class="ticker-item"><span>UPDATE:</span> BBC NEWS ELECTORAL COVERAGE ARCHIVE RESTORED</div>
-            <div class="ticker-item"><span>STATUS:</span> AVAILABLE FOR CONTENT STRATEGY & GLOBAL COMMS</div>
+            <div class="ticker-item">● FORMERLY BBC NEWS NAIROBI DIGITAL JOURNALIST</div>
+            <div class="ticker-item">● EXPERTISE: MULTIMEDIA NARRATIVES & AUDIENCE ENGAGEMENT</div>
+            <div class="ticker-item">● FELLOWSHIP: MOBILE JOURNALISM WITH META</div>
+            <div class="ticker-item">● CURRENT: FREELANCE DIGITAL CONTENT PRODUCER</div>
         </div>
     </div>
 
     <nav>
         <div class="container nav-content">
-            <div class="logo"><div class="live-dot"></div> VALENTINE.N</div>
-            <div class="nav-links">
-                <a href="#skills">Skills</a>
-                <a href="#portfolio">Work</a>
-                <a href="#contact">Contact</a>
-            </div>
+            <div class="logo"><div class="live-dot"></div> VALENTINE NGARUIYA</div>
+            <div style="font-size: 0.7rem; font-weight: 800; color: #666; letter-spacing: 2px;">COMMUNICATIONS HUB</div>
         </div>
     </nav>
 
     <header class="hero">
-        <div class="globe-bg"><i class="fas fa-globe-africa"></i></div>
-        <div class="container hero-content">
-            <h1>Transmitting <br> Global Impact</h1>
-            <p>I am a Digital Communications Specialist and Content Producer dedicated to strategic storytelling and high-stakes media operations.</p>
-            <a href="#contact" class="contact-btn" style="text-decoration:none;">Connect Live</a>
+        <div class="container">
+            <div class="profile-img"></div>
+            <h1>Valentine Ngaruiya</h1>
+            <p>Communications professional specializing in translating complex social, policy, and community issues into clear, engaging digital narratives.</p>
+            <a href="mailto:Valentinewatati@gmail.com" class="btn btn-primary">Partner with Me</a>
         </div>
     </header>
 
-    <section id="skills" class="container">
-        <h2 class="section-title">Core Competencies</h2>
-        <div class="skills-grid">
-            <div class="skill-card">
-                <i class="fas fa-bullhorn"></i>
-                <h3>Multi-Channel Strategy</h3>
-                <p>Developing cohesive content plans across web, social, and internal platforms.</p>
-            </div>
-            <div class="skill-card">
+    <section class="container">
+        <div class="pillar-grid">
+            <div class="pillar-card">
                 <i class="fas fa-video"></i>
-                <h3>Video Journalism</h3>
-                <p>End-to-end production of high-quality digital video content for global audiences.</p>
+                <h3>Multimedia Storytelling</h3>
+                <p>Skilled in producing content across written, visual, and video formats for diverse global audiences.</p>
             </div>
-            <div class="skill-card">
-                <i class="fas fa-globe-africa"></i>
-                <h3>Cross-Cultural Comms</h3>
-                <p>Tailoring messages to resonate with diverse African and international language services.</p>
+            <div class="pillar-card">
+                <i class="fas fa-bullseye"></i>
+                <h3>Impact Comms</h3>
+                <p>Supporting development, governance, and international contexts through strategic messaging.</p>
             </div>
-            <div class="skill-card">
-                <i class="fas fa-analytics"></i>
-                <h3>Performance Analytics</h3>
-                <p>Leveraging data to optimize impact, engagement, and campaign reach.</p>
+            <div class="pillar-card">
+                <i class="fas fa-tasks"></i>
+                <h3>Operational Strategy</h3>
+                <p>Strengthening workflows through structured coordination and high-volume stakeholder management.</p>
             </div>
         </div>
-    </section>
 
-    <section id="portfolio" class="container">
-        
-        <div class="category-header">Digital Video Journalism & Advocacy</div>
+        <div class="section-header">
+            <h2>Experience Overview</h2>
+        </div>
+
         <div class="project-grid">
-            
             <div class="project-card">
-                <span class="role-tag">Digital Video Journalist | BBC News</span>
-                <h4>Political & Electoral Coverage</h4>
-                <p>Produced and edited high-quality digital videos covering the Kenya Election 2022. Ensured accurate, impartial, and timely journalistic standards.</p>
-                <div class="links-container">
-                    <a href="https://www.instagram.com/reel/ChS2l1ulsXH/" target="_blank" class="link-btn">Presidential Announcements</a>
-                    <a href="https://www.instagram.com/tv/Cgjy0vTlCgc/" target="_blank" class="link-btn">Youth Perspectives</a>
-                    <a href="https://www.instagram.com/tv/Cgjy0vTlCgc/" target="_blank" class="link-btn">Voting Day</a>
-                    <a href="https://www.instagram.com/reel/ChS2l1ulsXH/" target="_blank" class="link-btn">William Ruto Interview</a>
+                <span class="role-date">BBC News | 2022</span>
+                <h4>Digital Journalist</h4>
+                <p>Collaborated with BBC Africa Hub to research, script, and edit digital stories on health, youth, and social protection for international audiences.</p>
+                <div style="margin-top:auto;">
+                    <a href="https://www.instagram.com/reel/ChS2l1ulsXH/" target="_blank" class="btn btn-small">View Work</a>
                 </div>
             </div>
 
             <div class="project-card">
-                <span class="role-tag">Digital Video Journalist | BBC / Radio Africa</span>
-                <h4>Human Rights & Conflict Narratives</h4>
-                <p>Translated complex social issues and conflict situations into accessible and compelling digital content focused on advocacy.</p>
-                <div class="links-container">
-                    <a href="https://youtu.be/tEOml5bc3HU" target="_blank" class="link-btn">DRC Conflict Unpacked</a>
-                    <a href="https://twitter.com/bbcafrica/status/1581252069779853314" target="_blank" class="link-btn">Jean Marimba Profile</a>
-                    <a href="https://twitter.com/bbcafrica/status/1566007365199167488" target="_blank" class="link-btn">Mauritius Hero Feature</a>
+                <span class="role-date">Radio Africa / Meta | 2020</span>
+                <h4>Mobile Journalism Fellow</h4>
+                <p>Managed full multimedia workflows, ensuring ethical storytelling and cultural sensitivity in high-stakes newsroom settings.</p>
+                <div style="margin-top:auto;">
+                    <a href="https://fb.watch/1_n3DhA_3Q/" target="_blank" class="btn btn-small">Showreel</a>
                 </div>
             </div>
 
             <div class="project-card">
-                <span class="role-tag">Digital Video Journalist | BBC / Radio Africa</span>
-                <h4>Cultural & Lifestyle Features</h4>
-                <p>Demonstrated versatility in creating engaging digital content on topics ranging from cultural events to lifestyle features.</p>
-                <div class="links-container">
-                    <a href="https://www.instagram.com/reel/ChuX1xDMgve/" target="_blank" class="link-btn">Grain Shipment Journey</a>
-                    <a href="https://www.instagram.com/tv/CdqUy2LIM3Q/" target="_blank" class="link-btn">Sabrina Elba Interview</a>
-                    <a href="https://www.instagram.com/reel/Ck2yF9xIkGQ/" target="_blank" class="link-btn">Samburu Traditions</a>
-                    <a href="https://www.instagram.com/tv/ChNFry90BIC/" target="_blank" class="link-btn">African Fashion</a>
-                    <a href="https://youtu.be/tEOml5bc3HU" target="_blank" class="link-btn">Ghana's Floating Book Fair</a>
-                </div>
+                <span class="role-date">Rosewood Homes | 2023 - Current</span>
+                <h4>Operations Manager</h4>
+                <p>Coordinating complex client communications and data management across multiple platforms and international stakeholders.</p>
             </div>
-
-            <div class="project-card">
-                <span class="role-tag">Meta Fellowship | Radio Africa Group</span>
-                <h4>Social Media Strategy & Engagement</h4>
-                <p>Managed social platforms to drive traffic and engagement. Increased viewer engagement by 30% and achieved a 20% growth in subscriber base.</p>
-                <div class="links-container">
-                    <a href="https://www.instagram.com/tv/CG91-Bvj1py/" target="_blank" class="link-btn">Intersex Advocacy</a>
-                    <a href="https://www.instagram.com/tv/CGiD9B_jRAY/" target="_blank" class="link-btn">Local Craftsmanship</a>
-                    <a href="https://www.instagram.com/tv/CGFKRuEgZsC/" target="_blank" class="link-btn">Sustainable Dry Initiative</a>
-                    <a href="https://fb.watch/1_n3DhA_3Q/" target="_blank" class="link-btn">Facebook Watch</a>
-                    <a href="https://www.instagram.com/tv/CFOt2kdHA7y/" target="_blank" class="link-btn">Kiss Staycation</a>
-                    <a href="https://www.instagram.com/tv/CFMgo1RHxKX/" target="_blank" class="link-btn">Kisses of Kindness</a>
-                    <a href="https://www.instagram.com/tv/CEel_lxCvZl/" target="_blank" class="link-btn">Yetu Festival</a>
-                    <a href="https://www.instagram.com/tv/CD_ZD_gAvNK/" target="_blank" class="link-btn">Pads Story</a>
-                    <a href="https://instagram.com/tv/CKTCgEnnBjj/" target="_blank" class="link-btn">Mamito Feature</a>
-                </div>
-            </div>
-        </div>
-
-        <div class="category-header">Visual Communication & Operations</div>
-        <div class="project-grid">
-            
-            <div class="project-card">
-                <span class="role-tag">Property Advert Designer | Hamisha Me</span>
-                <h4>Property Marketing Visuals</h4>
-                <p>Specialized in creating visually appealing marketing content for property features, encompassing videos and informative presentations for real estate stakeholders.</p>
-            </div>
-
-            <div class="project-card">
-                <span class="role-tag">Operations Manager | Rosewood Homes</span>
-                <h4>Operational Communications</h4>
-                <p>Managed complex booking and listing processes, balancing multiple timelines and coordinating guest inquiries with discretion and proactive problem-solving.</p>
-            </div>
-
         </div>
     </section>
 
-    <section id="contact" class="contact-section">
-        <div class="container contact-grid">
-            <div>
-                <h2 style="font-size: 3.5rem; line-height: 1;">Let's <br>Connect</h2>
-                <p style="margin: 30px 0; color: #b2bec3;">I am always keen to explore new opportunities, collaborate on impactful projects, or discuss the evolving landscape of digital communications.</p>
-                <div style="font-size: 1.1rem;">
-                    <p><i class="fas fa-envelope" style="color:var(--accent)"></i> Valentinewatati@gmail.com</p>
-                    <p><i class="fas fa-phone" style="color:var(--accent); margin-top: 15px;"></i> +254 723 871172</p>
-                    <p><i class="fab fa-linkedin" style="color:var(--accent); margin-top: 15px;"></i> LinkedIn Profile</p>
-                </div>
-            </div>
-            <form style="background: rgba(255,255,255,0.05); padding: 40px; border-radius: 10px;">
-                <input type="text" placeholder="Name" style="width:100%; padding:15px; margin-bottom:15px; background:rgba(255,255,255,0.1); border:none; color:white;">
-                <input type="email" placeholder="Email" style="width:100%; padding:15px; margin-bottom:15px; background:rgba(255,255,255,0.1); border:none; color:white;">
-                <textarea placeholder="Message" rows="5" style="width:100%; padding:15px; margin-bottom:20px; background:rgba(255,255,255,0.1); border:none; color:white;"></textarea>
-                <button class="contact-btn" style="width:100%">Transmit Message</button>
-            </form>
-        </div>
-    </section>
-
-    <footer style="text-align:center; padding: 40px; background: #000; color: #636e72; font-size: 0.8rem;">
-        &copy; 2026 Valentine Ngaruiya. All Broadcast Rights Reserved.
+    <footer style="text-align: center; padding: 100px 0 50px; color: #444; font-size: 0.7rem; letter-spacing: 2px; text-transform: uppercase;">
+        © 2026 Valentine Ngaruiya • Digital Communications Specialist
     </footer>
 
 </body>
