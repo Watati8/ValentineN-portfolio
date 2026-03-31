@@ -66,7 +66,21 @@
         .brand-wall { margin-top: 80px; display: flex; flex-wrap: wrap; justify-content: center; gap: 40px; opacity: 0.4; filter: grayscale(1); }
         .brand-item { font-weight: 900; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 3px; }
 
-        /* --- ARCHIVE SECTION (HIGHLY DESCRIPTIVE) --- */
+        /* --- ABOUT SECTION --- */
+        .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; padding: 100px 0; }
+        .about-text h2 { font-size: 3.5rem; font-weight: 900; text-transform: uppercase; margin-bottom: 30px; }
+        .about-text p { font-size: 1.1rem; color: var(--text-dim); margin-bottom: 25px; }
+        
+        .visual-container { position: relative; display: flex; justify-content: center; align-items: center; }
+        .radio-visual { width: 300px; height: 300px; border: 2px solid var(--accent); border-radius: 50%; display: flex; justify-content: center; align-items: center; position: relative; }
+        .radio-visual i { font-size: 5rem; color: var(--accent); z-index: 2; }
+        .pulse { position: absolute; width: 100%; height: 100%; border: 2px solid var(--accent); border-radius: 50%; animation: signalPulse 3s infinite; opacity: 0; }
+        .pulse:nth-child(2) { animation-delay: 1s; }
+        .pulse:nth-child(3) { animation-delay: 2s; }
+
+        @keyframes signalPulse { 0% { transform: scale(1); opacity: 0.5; } 100% { transform: scale(1.8); opacity: 0; } }
+
+        /* --- ARCHIVE SECTION --- */
         .archive-header { margin: 60px 0; border-left: 8px solid var(--accent); padding-left: 25px; }
         .archive-header h2 { font-size: 3.5rem; text-transform: uppercase; font-weight: 900; }
         
@@ -75,7 +89,6 @@
         .work-card h3 { font-size: 2.5rem; text-transform: uppercase; font-weight: 900; margin-bottom: 20px; }
         
         .work-details { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; }
-        .description-col h4 { text-transform: uppercase; font-size: 0.9rem; margin-bottom: 15px; color: #fff; border-bottom: 1px solid var(--accent); display: inline-block; }
         .description-col p { color: var(--text-dim); margin-bottom: 25px; font-size: 1.05rem; }
         
         .bullets { list-style: none; margin-bottom: 30px; }
@@ -87,7 +100,6 @@
         .links-grid { display: grid; grid-template-columns: 1fr; gap: 10px; margin-bottom: 30px; }
         .work-link { padding: 15px; background: #050505; color: #fff; text-decoration: none; font-size: 0.75rem; font-weight: 900; text-transform: uppercase; text-align: center; border: 1px solid #222; transition: 0.3s; display: flex; justify-content: space-between; align-items: center; }
         .work-link:hover { background: var(--accent); border-color: var(--accent); }
-        .work-link i { font-size: 0.9rem; }
 
         /* --- CONTACT --- */
         #contact { padding: 100px 0; }
@@ -99,7 +111,7 @@
         @keyframes rotateGlobe { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
         @media (max-width: 900px) {
             .hero-title { font-size: 3rem; }
-            .work-details, .contact-grid { grid-template-columns: 1fr; }
+            .work-details, .contact-grid, .about-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -120,6 +132,8 @@
         <div class="container nav-content">
             <div class="logo" onclick="showSection('home')">Valentine Ngaruiya</div>
             <div class="nav-links">
+                <button onclick="showSection('home')">Home</button>
+                <button onclick="showSection('about')">About</button>
                 <button onclick="showSection('archive')">Archive</button>
                 <button onclick="showSection('contact')">Contact</button>
             </div>
@@ -129,13 +143,11 @@
     <section id="home" class="container fade-in">
         <div class="profile-img"></div>
         <h1 class="hero-title">Human Stories.<br>Global Reach.</h1>
-        <p class="hero-sub">Translating complex social, policy, and community issues into clear, engaging narratives through high-impact digital storytelling.</p>
-        
+        <p class="hero-sub">Multimedia Producer & Digital Strategist. Translating complex social, policy, and community issues into high-impact narratives.</p>
         <div class="cta-group">
-            <button class="btn-primary" onclick="showSection('archive')">Enter Transmission Archive</button>
-            <button class="btn-outline" onclick="showSection('contact')">Direct Connect</button>
+            <button class="btn-primary" onclick="showSection('archive')">Transmission Archive</button>
+            <button class="btn-outline" onclick="showSection('about')">The Narrative</button>
         </div>
-
         <div class="brand-wall">
             <span class="brand-item">BBC News</span>
             <span class="brand-item">Meta</span>
@@ -143,88 +155,134 @@
             <span class="brand-item">Mediamax K24</span>
             <span class="brand-item">Kiss 100</span>
             <span class="brand-item">Classic 105</span>
-            <span class="brand-item">Radio Jambo</span>
-            <span class="brand-item">Smooth FM</span>
+        </div>
+    </section>
+
+    <section id="about" class="container hidden">
+        <div class="about-grid">
+            <div class="about-text">
+                <h2>The Force <br> Behind the Signal</h2>
+                <p>I am a communications professional with a deep-rooted background in journalism and digital storytelling. My career is defined by <b>making complex stories accessible</b> to global audiences.</p>
+                <p>From the newsrooms of <b>BBC News</b> and <b>K24</b> to leading digital strategy for the <b>Radio Africa Group</b>, I bring a unique blend of editorial rigor and creative innovation.</p>
+                <p>What I bring to teams:
+                    <ul class="bullets">
+                        <li><b>High-Impact Production:</b> Full multimedia workflow management from field to newsroom.</li>
+                        <li><b>Strategic Insight:</b> Data-driven content strategies that boost audience engagement.</li>
+                        <li><b>Stakeholder Mastery:</b> Experience in diplomacy, interviews, and brand-voice alignment.</li>
+                    </ul>
+                </p>
+                <button class="btn-primary" onclick="showSection('home')" style="margin-top:20px;">Back to Home</button>
+            </div>
+            <div class="visual-container">
+                <div class="radio-visual">
+                    <div class="pulse"></div>
+                    <div class="pulse"></div>
+                    <div class="pulse"></div>
+                    <i class="fas fa-broadcast-tower"></i>
+                </div>
+            </div>
         </div>
     </section>
 
     <section id="archive" class="container hidden">
         <div class="archive-header">
-            <h2>The Control Room</h2>
-            <p style="color:var(--text-dim)">Detailed breakdown of key journalistic and communication projects.</p>
+            <h2>The Archive</h2>
+            <p style="color:var(--text-dim)">Global transmissions categorized by impact and sector.</p>
         </div>
 
         <div class="work-card">
-            <span class="card-label">Journalism & Governance</span>
-            <h3>BBC News: Kenya 2022</h3>
+            <span class="card-label">Journalism</span>
+            <h3>Politics & Governance</h3>
             <div class="work-details">
                 <div class="description-col">
-                    <h4>The Mission</h4>
-                    <p>Spearheaded digital coverage for the Kenya 2022 Elections, focusing on bridging the gap between political complexity and youth audience engagement.</p>
-                    <h4>Key Impact</h4>
+                    <p>In-depth coverage of high-stakes political shifts, international conflict, and electoral transparency for global audiences like the BBC.</p>
                     <ul class="bullets">
-                        <li>Produced 10+ human-centered features explaining electoral policy.</li>
-                        <li>Ensured 100% journalistic impartiality under high-stakes breaking news conditions.</li>
-                        <li>Coordinated with BBC Africa Hub for global digital syndication.</li>
+                        <li>Directed Kenya 2022 Election digital features.</li>
+                        <li>Analyzed policy impact on youth demographics.</li>
+                        <li>Reported on geopolitical conflict and maritime heroism.</li>
                     </ul>
                 </div>
                 <div class="links-col">
-                    <span class="category-title">Politics & Policy</span>
+                    <span class="category-title">Electoral Policy</span>
                     <div class="links-grid">
-                        <a href="https://www.instagram.com/reel/ChS2l1ulsXH/" target="_blank" class="work-link">Presidential Coverage <span><i class="fas fa-external-link-alt"></i></span></a>
-                        <a href="https://www.instagram.com/tv/Cgjy0vTlCgc/" target="_blank" class="work-link">Youth Perspective <span><i class="fas fa-external-link-alt"></i></span></a>
+                        <a href="https://www.instagram.com/reel/ChFb3qBl0gc/" target="_blank" class="work-link">Kenya Voting Day</a>
+                        <a href="https://www.instagram.com/tv/Cgjy0vTlCgc/" target="_blank" class="work-link">Youth on Voting</a>
+                        <a href="https://www.instagram.com/reel/ChS2l1ulsXH/" target="_blank" class="work-link">President Announcement</a>
+                        <a href="https://youtu.be/tEOmI5bc3HU" target="_blank" class="work-link">DRC Conflict Coverage</a>
                     </div>
-                    <span class="category-title">International Documentary</span>
+                    <span class="category-title">Regional Security & Policy</span>
                     <div class="links-grid">
-                        <a href="https://youtu.be/tEOml5bc3HU" target="_blank" class="work-link">Conflict in DRC <span><i class="fas fa-external-link-alt"></i></span></a>
-                        <a href="https://twitter.com/bbcafrica/status/1581252069779853314" target="_blank" class="work-link">Cultural Profile <span><i class="fas fa-external-link-alt"></i></span></a>
+                        <a href="https://www.instagram.com/reel/ChuX1xDMgve/" target="_blank" class="work-link">Grain Shipment Analysis</a>
+                        <a href="https://twitter.com/bbcafrica/status/1566007365199167488" target="_blank" class="work-link">Mauritius Policy Hero</a>
                     </div>
                 </div>
             </div>
         </div>
 
         <div class="work-card">
-            <span class="card-label">Strategy & Impact</span>
-            <h3>Radio Africa Group & Meta</h3>
+            <span class="card-label">Impact Comms</span>
+            <h3>Social Advocacy & Health</h3>
             <div class="work-details">
                 <div class="description-col">
-                    <h4>The Mission</h4>
-                    <p>Managed the multi-channel digital ecosystem for <b>5 distinct radio brands</b> (Kiss 100, Classic 105, Radio Jambo, Smooth FM, East FM) during a Meta-partnered Fellowship.</p>
-                    <h4>Key Impact</h4>
+                    <p>Producing narratives that drive policy awareness for health, human rights, and sustainable development initiatives.</p>
                     <ul class="bullets">
-                        <li>Achieved a <b>30% increase</b> in viewer engagement through data-driven content strategy.</li>
-                        <li>Pioneered Mobile Journalism (MoJo) techniques for social-first news delivery.</li>
-                        <li>Produced viral advocacy campaigns for health and social justice.</li>
+                        <li>Pioneered digital campaigns for reproductive health.</li>
+                        <li>Advocated for intersex rights and inclusivity.</li>
+                        <li>Produced environmental and sustainability features.</li>
                     </ul>
                 </div>
                 <div class="links-col">
-                    <span class="category-title">Social Advocacy</span>
+                    <span class="category-title">Human Rights & Health</span>
                     <div class="links-grid">
-                        <a href="https://www.instagram.com/tv/CD_ZD_gAvNK/" target="_blank" class="work-link">Pads Policy Drive <span><i class="fas fa-external-link-alt"></i></span></a>
-                        <a href="https://www.instagram.com/tv/CG91-Bvj1py/" target="_blank" class="work-link">Intersex Rights Story <span><i class="fas fa-external-link-alt"></i></span></a>
+                        <a href="https://www.instagram.com/tv/CD_ZD_gAvNK/" target="_blank" class="work-link">The Pads Story (Health)</a>
+                        <a href="https://www.instagram.com/tv/CG91-Bvj1py/" target="_blank" class="work-link">Intersex Persons Rights</a>
+                        <a href="https://www.facebook.com/BBCnewsafrica/videos/780413966550143/" target="_blank" class="work-link">Jean Marimba Support</a>
                     </div>
+                    <span class="category-title">Sustainability</span>
+                    <div class="links-grid">
+                        <a href="https://www.instagram.com/tv/CGFKRuEgZsC/" target="_blank" class="work-link">Sustainable Dry Initiative</a>
+                        <a href="https://www.instagram.com/tv/CdqUy2LlM3Q/" target="_blank" class="work-link">Sabrina Elba (Impact)</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="work-card">
+            <span class="card-label">Multimedia</span>
+            <h3>Culture & Lifestyle</h3>
+            <div class="work-details">
+                <div class="description-col">
+                    <p>Showcasing the vibrant pulse of African creativity, fashion, and communal identity through high-gloss digital features.</p>
+                </div>
+                <div class="links-col">
+                    <span class="category-title">Culture Transmissions</span>
+                    <div class="links-grid">
+                        <a href="https://www.instagram.com/tv/ChNFry9oBIC/" target="_blank" class="work-link">Africa Fashion Hub</a>
+                        <a href="https://www.instagram.com/reel/Ck2yF9xIkGQ/" target="_blank" class="work-link">Samburu Cultural Spotlight</a>
+                        <a href="https://www.instagram.com/tv/Ce1kuLol-NW/" target="_blank" class="work-link">Patrice Evra Feature</a>
+                        <a href="https://www.instagram.com/tv/CewQQC0lzsb/" target="_blank" class="work-link">The Wig Narrative</a>
+                        <a href="https://www.instagram.com/tv/CGiD9B_jRAY/" target="_blank" class="work-link">Artisanal Sandals</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="work-card">
+            <span class="card-label">Commercial Strategy</span>
+            <h3>Radio Africa & Meta Strategy</h3>
+            <div class="work-details">
+                <div class="description-col">
+                    <p>Executing multi-channel content strategies for Kenya's leading radio brands, boosting social engagement and commercial reach.</p>
+                </div>
+                <div class="links-col">
                     <span class="category-title">Brand Campaigns</span>
                     <div class="links-grid">
-                        <a href="https://www.instagram.com/tv/CFOt2kdHA7y/" target="_blank" class="work-link">Kiss Staycation <span><i class="fas fa-external-link-alt"></i></span></a>
-                        <a href="https://fb.watch/1_n3DhA_3Q/" target="_blank" class="work-link">Meta Features <span><i class="fas fa-external-link-alt"></i></span></a>
+                        <a href="https://www.instagram.com/tv/CFOt2kdHA7y/" target="_blank" class="work-link">Kiss Staycation Drive</a>
+                        <a href="https://www.instagram.com/tv/CFMgo1RHxKX/" target="_blank" class="work-link">Kisses of Kindness</a>
+                        <a href="https://fb.watch/1_n3DhA_3Q/" target="_blank" class="work-link">Meta Watch Strategy</a>
+                        <a href="https://instagram.com/tv/CKTCgEnnBjj/" target="_blank" class="work-link">Mamito Feature</a>
+                        <a href="https://www.instagram.com/tv/CEel_lxCvZl/" target="_blank" class="work-link">Yetu Festival</a>
                     </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="work-card">
-            <span class="card-label">Production & Ops</span>
-            <h3>Mediamax & Digital Production</h3>
-            <div class="work-details">
-                <div class="description-col">
-                    <h4>The Mission</h4>
-                    <p>Ensuring operational excellence across broadcast news (K24) and international digital production workflows.</p>
-                    <h4>Key Impact</h4>
-                    <ul class="bullets">
-                        <li><b>K24 News:</b> Researched and interviewed key figures for prime-time broadcast leads.</li>
-                        <li><b>Upwork/Freelance:</b> Managing end-to-end production for global clients with rapid turnaround.</li>
-                        <li><b>Rosewood Homes:</b> Directing communications and listing management for premium stakeholder groups.</li>
-                    </ul>
                 </div>
             </div>
         </div>
@@ -234,16 +292,14 @@
         <div class="contact-grid">
             <div>
                 <h2 style="font-size:4rem; font-weight:900; text-transform:uppercase;">Establish <br> Contact</h2>
-                <p style="color:var(--text-dim); margin-bottom:40px; margin-top:20px;">Available for digital production, content strategy, and communication consultancies.</p>
-                
                 <a href="mailto:Valentinewatati@gmail.com" class="contact-method"><i class="fas fa-envelope"></i><span>Valentinewatati@gmail.com</span></a>
                 <a href="tel:+254723871172" class="contact-method"><i class="fas fa-phone"></i><span>+254 723 871172</span></a>
-                <a href="https://linkedin.com" target="_blank" class="contact-method"><i class="fab fa-linkedin"></i><span>LinkedIn Profile</span></a>
+                <button class="btn-outline" onclick="showSection('home')" style="margin-top:20px;">Return Home</button>
             </div>
             <div style="background:#111; padding:40px; border:1px solid #222;">
                 <form>
-                    <input type="text" placeholder="Your Name" style="width:100%; padding:15px; background:#1a1a1a; border:none; color:#fff; margin-bottom:15px;">
-                    <textarea placeholder="Tell me about your project or role..." rows="5" style="width:100%; padding:15px; background:#1a1a1a; border:none; color:#fff; margin-bottom:20px;"></textarea>
+                    <input type="text" placeholder="Name" style="width:100%; padding:15px; background:#1a1a1a; border:none; color:#fff; margin-bottom:15px;">
+                    <textarea placeholder="How can I help your team?" rows="5" style="width:100%; padding:15px; background:#1a1a1a; border:none; color:#fff; margin-bottom:20px;"></textarea>
                     <button class="btn-primary" style="width:100%;">Transmit Message</button>
                 </form>
             </div>
@@ -253,6 +309,7 @@
     <script>
         function showSection(id) {
             document.getElementById('home').classList.add('hidden');
+            document.getElementById('about').classList.add('hidden');
             document.getElementById('archive').classList.add('hidden');
             document.getElementById('contact').classList.add('hidden');
             
@@ -262,6 +319,5 @@
             window.scrollTo(0, 0);
         }
     </script>
-
 </body>
 </html>
