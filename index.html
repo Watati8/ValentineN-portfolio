@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Valentine Ngaruiya | Digital Communications & Storytelling</title>
+    <title>Valentine Ngaruiya | Digital Storyteller </title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root {
@@ -18,7 +18,7 @@
         body { background-color: var(--primary); color: var(--text-main); line-height: 1.6; overflow-x: hidden; }
         .container { max-width: 1200px; margin: 0 auto; padding: 0 25px; }
 
-        /* --- TICKER --- */
+        /* --- THE NEWS TICKER --- */
         .ticker-wrap {
             width: 100%; background: var(--accent); color: white; padding: 12px 0;
             position: fixed; top: 0; z-index: 2000; font-size: 0.85rem; font-weight: 800;
@@ -34,36 +34,79 @@
         .logo { font-weight: 900; font-size: 1.5rem; letter-spacing: -1px; text-transform: uppercase; color: var(--accent); }
         .live-dot { height: 10px; width: 10px; background: var(--accent); border-radius: 50%; display: inline-block; margin-right: 10px; animation: pulse 2s infinite; }
 
-        /* --- HERO --- */
+        /* --- HERO & THE GLOBE --- */
         .hero { padding: 140px 0 100px; text-align: center; position: relative; overflow: hidden; }
+        
+        .globe-container {
+            position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+            width: 800px; height: 800px; z-index: 0; pointer-events: none;
+        }
+        .globe-icon {
+            font-size: 500px; color: rgba(255, 255, 255, 0.05);
+            animation: rotateGlobe 60s linear infinite;
+        }
+
+        .hero-content { position: relative; z-index: 2; }
         .profile-img {
             width: 200px; height: 200px; margin: 0 auto 30px; border-radius: 50%;
             border: 3px solid var(--accent); 
-            background: url('images/valentine-profile.png') center 20%/cover;
+            background: url('images/valentine-profile.png') center 20%/cover; 
             box-shadow: 0 0 60px rgba(214, 48, 49, 0.4);
         }
-        .hero h1 { font-size: 4.5rem; font-weight: 900; letter-spacing: -3px; margin-bottom: 15px; text-transform: uppercase; line-height: 0.9; }
+        
+        .hero h1 { font-size: 4.8rem; font-weight: 900; letter-spacing: -3px; margin-bottom: 15px; text-transform: uppercase; line-height: 0.9; }
         .hero p { font-size: 1.4rem; color: var(--text-dim); max-width: 850px; margin: 0 auto 40px; font-weight: 300; }
 
-        /* --- PORTFOLIO CATEGORIES --- */
-        .portfolio-categories { margin: 80px 0; }
-        .category { margin-bottom: 60px; }
-        .category h2 { font-size: 3rem; text-transform: uppercase; font-weight: 900; margin-bottom: 20px; border-left: 8px solid var(--accent); padding-left: 15px; }
-        .category p { font-size: 1.2rem; margin-bottom: 15px; }
-        .category ul { list-style: none; margin-bottom: 20px; }
-        .category ul li { margin-bottom: 10px; }
-        .view-more { display: inline-block; margin-top: 10px; padding: 10px 20px; background: var(--accent); color: #fff; text-decoration: none; font-weight: bold; border-radius: 5px; }
+        /* --- TRUSTED BY WALL --- */
+        .brand-wall { display: flex; flex-wrap: wrap; justify-content: center; gap: 40px; padding: 40px 0; opacity: 0.6; filter: grayscale(1); }
+        .brand-item { font-weight: 900; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 3px; }
+
+        /* --- WORK SECTIONS --- */
+        .section-header { margin: 80px 0 60px; text-align: left; border-left: 8px solid var(--accent); padding-left: 25px; }
+        .section-header h2 { font-size: 3rem; text-transform: uppercase; font-weight: 900; }
+
+        .work-grid { display: grid; grid-template-columns: 1fr; gap: 40px; }
+        .work-card { 
+            background: #0f0f0f; border: 1px solid #1a1a1a; padding: 50px; 
+            transition: var(--transition); position: relative;
+        }
+        .work-card:hover { border-color: var(--accent); background: #141414; }
+        
+        .work-card h3 { font-size: 2.2rem; margin-bottom: 10px; text-transform: uppercase; font-weight: 900; }
+        .work-card .company { color: var(--accent); font-weight: 800; text-transform: uppercase; margin-bottom: 25px; letter-spacing: 2px; font-size: 0.9rem; }
+        
+        .work-details { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 40px; }
+        .work-description p { color: var(--text-dim); font-size: 1.1rem; margin-bottom: 20px; }
+        .work-bullets { list-style: none; margin-bottom: 20px; }
+        .work-bullets li { position: relative; padding-left: 25px; margin-bottom: 12px; color: #eee; font-size: 0.95rem; }
+        .work-bullets li::before { content: '→'; position: absolute; left: 0; color: var(--accent); font-weight: 900; }
+
+        /* --- CATEGORIZED LINKS --- */
+        .category-block { margin-bottom: 20px; }
+        .category-title { font-size: 0.65rem; font-weight: 900; color: var(--accent); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 10px; display: block; border-bottom: 1px solid #333; padding-bottom: 5px; }
+        .links-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+        .work-link {
+            padding: 10px; background: #1a1a1a; color: #fff; text-decoration: none; 
+            font-size: 0.7rem; font-weight: 900; text-transform: uppercase; text-align: center;
+            border-radius: 2px; transition: 0.3s; border: 1px solid #333;
+        }
+        .work-link:hover { background: white; color: black; transform: translateY(-2px); }
 
         /* --- CONTACT SECTION --- */
         .contact-section { background: #0a0a0a; padding: 100px 0; border-top: 1px solid #1a1a1a; margin-top: 100px; }
+        .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
         .contact-info h2 { font-size: 3.5rem; text-transform: uppercase; font-weight: 900; line-height: 1; margin-bottom: 30px; }
         .contact-method { display: flex; align-items: center; margin-bottom: 25px; text-decoration: none; color: #fff; transition: 0.3s; }
         .contact-method:hover { color: var(--accent); }
         .contact-method i { font-size: 1.5rem; margin-right: 20px; color: var(--accent); }
         .contact-method span { font-weight: 700; text-transform: uppercase; letter-spacing: 1px; }
 
+        @keyframes rotateGlobe { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+        @keyframes pulse { 0% { opacity: 1; } 50% { opacity: 0.4; } 100% { opacity: 1; } }
+
         @media (max-width: 900px) {
-            .hero h1 { font-size: 3rem; }
+            .work-details, .contact-grid { grid-template-columns: 1fr; }
+            .hero h1 { font-size: 3.2rem; }
         }
     </style>
 </head>
@@ -81,60 +124,121 @@
     <nav>
         <div class="container nav-content">
             <div class="logo"><div class="live-dot"></div> Valentine Ngaruiya</div>
-            <div style="font-size: 0.7rem; font-weight: 800; color: #666; letter-spacing: 2px;">DIGITAL CONTENT PRODUCER</div>
+            <div style="font-size: 0.7rem; font-weight: 800; color: #666; letter-spacing: 2px;">EST. 2019 • NAIROBI</div>
         </div>
     </nav>
 
     <header class="hero">
+        <div class="globe-container">
+            <i class="fas fa-globe-africa globe-icon"></i>
+        </div>
         <div class="container hero-content">
             <div class="profile-img"></div>
-            <h1>Transmitting 
- Global Impact</h1>
-            <p>Digital producer specializing in translating complex social issues into compelling multimedia narratives.</p>
+            <h1>Human Stories.<br>Global Reach.</h1>
+            <p>I transform complex data and social issues into compelling digital narratives that drive real-world policy influence.</p>
+            
+            <div class="brand-wall">
+                <span class="brand-item">BBC News</span>
+                <span class="brand-item">Meta</span>
+                <span class="brand-item">Radio Africa Group</span>
+                <span class="brand-item">Mediamax K24</span>
+                <span class="brand-item">Kiss 100</span>
+                <span class="brand-item">Classic 105</span>
+                <span class="brand-item">Radio Jambo</span>
+                <span class="brand-item">Smooth FM</span>
+            </div>
         </div>
     </header>
 
     <main class="container">
         
-        <div class="portfolio-categories">
-            <div class="category">
-                <h2>Advocacy</h2>
-                <p>Explore stories that highlight social justice and community issues.</p>
-                <ul>
-                    <li><a href="https://www.instagram.com/reel/ChuX1xDMgve/?igshid=YmMyMTA2M2Y=">Grain Shipment</a>: Discusses food security impacts.</li>
-                    <li><a href="https://www.instagram.com/reel/ChFb3qBl0gc/?igshid=YmMyMTA2M2Y=">Voting Day Kenya</a>: Captures the voting experience.</li>
-                </ul>
-                <a href="#advocacy-portfolio" class="view-more">View Advocacy Portfolio</a>
+        <div class="section-header">
+            <h2>The Transmission Archive</h2>
+        </div>
+
+        <div class="work-grid">
+            <div class="work-card">
+                <div class="company">BBC News | Multimedia Journalism</div>
+                <h3>Kenya Electoral Coverage</h3>
+                <div class="work-details">
+                    <div class="work-description">
+                        <p>Bridging the gap between high-stakes political maneuvers and the human experience on the ground during the 2022 Elections.</p>
+                        <ul class="work-bullets">
+                            <li>Produced high-impact digital features for the BBC Africa Hub.</li>
+                            <li>Specialized in "MoJo" (Mobile Journalism) for rapid, ethical reporting.</li>
+                        </ul>
+                    </div>
+                    <div class="work-links-section">
+                        <div class="category-block">
+                            <span class="category-title">Politics & Governance</span>
+                            <div class="links-grid">
+                                <a href="https://www.instagram.com/reel/ChS2l1ulsXH/" target="_blank" class="work-link">Ruto Feature</a>
+                                <a href="https://www.instagram.com/tv/Cgjy0vTlCgc/" target="_blank" class="work-link">Youth Votes</a>
+                                <a href="https://twitter.com/bbcafrica/status/1581252069779853314" target="_blank" class="work-link">Policy Spotlight</a>
+                            </div>
+                        </div>
+                        <div class="category-block">
+                            <span class="category-title">Social Impact</span>
+                            <div class="links-grid">
+                                <a href="https://youtu.be/tEOml5bc3HU" target="_blank" class="work-link">DRC Conflict</a>
+                                <a href="https://www.instagram.com/tv/CdqUy2LIM3Q/" target="_blank" class="work-link">Sustainability</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
 
-            <div class="category">
-                <h2>Politics</h2>
-                <p>Focus on your work related to elections, government policies, and political narratives.</p>
-                <ul>
-                    <li><a href="https://www.instagram.com/tv/CdqUy2LlM3Q/?igshid=YmMyMTA2M2Y=">Sabrina Elba</a>: Discusses political engagement.</li>
-                    <li><a href="https://www.instagram.com/reel/Ck2yF9xIkGQ/?igshid=YmMyMTA2M2Y=">Kenya Election 2022</a>: Highlights on corruption and state capture.</li>
-                </ul>
-                <a href="#politics-portfolio" class="view-more">View Politics Portfolio</a>
+            <div class="work-card">
+                <div class="company">Radio Africa Group & Meta | Digital Strategy</div>
+                <h3>Multi-Station Content Management</h3>
+                <div class="work-details">
+                    <div class="work-description">
+                        <p>Commanded the digital strategy for <b>five radio stations</b>, achieving a 30% surge in viewer engagement across platforms.</p>
+                        <ul class="work-bullets">
+                            <li>Stations: Kiss 100, Classic 105, Radio Jambo, Smooth FM, East FM.</li>
+                            <li>Produced the viral "Kiss on the road" and "Pads Policy" advocacy features.</li>
+                        </ul>
+                    </div>
+                    <div class="work-links-section">
+                        <div class="category-block">
+                            <span class="category-title">Campaigns & Health</span>
+                            <div class="links-grid">
+                                <a href="https://www.instagram.com/tv/CD_ZD_gAvNK/" target="_blank" class="work-link">Pads Drive</a>
+                                <a href="https://www.instagram.com/tv/CG91-Bvj1py/" target="_blank" class="work-link">Intersex Rights</a>
+                                <a href="https://www.instagram.com/tv/CFOt2kdHA7y/" target="_blank" class="work-link">Kiss Campaign</a>
+                                <a href="https://fb.watch/1_n3DhA_3Q/" target="_blank" class="work-link">Meta Watch</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
 
-            <div class="category">
-                <h2>Health</h2>
-                <p>Highlight health-related stories and campaigns.</p>
-                <ul>
-                    <li><a href="https://www.instagram.com/tv/CG91-Bvj1py/?utm_source=ig_web_copy_link">Intersex Persons</a>: A narrative on gender diversity.</li>
-                    <li><a href="https://www.instagram.com/tv/CGFKRuEgZsC/?utm_source=ig_web_copy_link">Sustainable Dry Initiative</a>: Focused on health sustainability.</li>
-                </ul>
-                <a href="#health-portfolio" class="view-more">View Health Portfolio</a>
+            <div class="work-card">
+                <div class="company">Mediamax Network (K24) | News Production</div>
+                <h3>Broadcast Journalism</h3>
+                <div class="work-details">
+                    <div class="work-description">
+                        <p>Gathered and refined news leads for nationwide broadcast, ensuring alignment with editorial standards.</p>
+                        <ul class="work-bullets">
+                            <li>Conducted thorough on-site research and interviews for prime-time news.</li>
+                            <li>Coordinated with producers to refine high-stakes story ideas.</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
 
-            <div class="category">
-                <h2>Culture & Society</h2>
-                <p>Featuring pieces that explore cultural narratives and societal issues.</p>
-                <ul>
-                    <li><a href="https://www.instagram.com/tv/ChNFry9oBIC/?igshid=YmMyMTA2M2Y=">Africa Fashion</a>: Celebrating African culture.</li>
-                    <li><a href="https://www.instagram.com/tv/Ce1kuLol-NW/?igshid=YmMyMTA2M2Y=">Patrice Evra</a>: A look at sports and culture.</li>
-                </ul>
-                <a href="#culture-portfolio" class="view-more">View Culture Portfolio</a>
+            <div class="work-card">
+                <div class="company">Freelance | Digital Operations</div>
+                <h3>Strategic Content & Ops</h3>
+                <div class="work-details">
+                    <div class="work-description">
+                        <p>Specializing in high-volume stakeholder management and multi-channel content adaptation.</p>
+                        <ul class="work-bullets">
+                            <li>Upwork Digital Producer: Managing end-to-end production cycles for global clients.</li>
+                            <li>Rosewood Homes: Directing communications and listing management for premium properties.</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
     </main>
@@ -142,31 +246,25 @@
     <section class="contact-section">
         <div class="container contact-grid">
             <div class="contact-info">
-                <h2>Connect 
- Live</h2>
-                <p style="color: var(--text-dim); margin-bottom: 40px;">Ready to transmit your impact? Reach out through the channels below.</p>
-                
+                <h2>Connect <br> Live</h2>
                 <a href="mailto:Valentinewatati@gmail.com" class="contact-method">
                     <i class="fas fa-envelope"></i>
                     <span>Valentinewatati@gmail.com</span>
                 </a>
-                
                 <a href="tel:+254723871172" class="contact-method">
                     <i class="fas fa-phone"></i>
                     <span>+254 723 871172</span>
                 </a>
-
                 <a href="https://linkedin.com" target="_blank" class="contact-method">
                     <i class="fab fa-linkedin"></i>
                     <span>LinkedIn Profile</span>
                 </a>
             </div>
             <div style="background: #111; padding: 40px; border: 1px solid #222;">
-                <p style="font-size: 0.8rem; letter-spacing: 2px; color: var(--accent); font-weight: 900; text-transform: uppercase; margin-bottom: 20px;">Direct Message</p>
                 <form>
                     <input type="text" placeholder="Name" style="width:100%; padding:15px; background:#1a1a1a; border:none; color:#fff; margin-bottom:15px;">
                     <textarea placeholder="Your Message" rows="5" style="width:100%; padding:15px; background:#1a1a1a; border:none; color:#fff; margin-bottom:20px;"></textarea>
-                    <button style="width:100%; padding:15px; background:var(--accent); color:#fff; border:none; font-weight:900; text-transform:uppercase; cursor:pointer;">Transmit</button>
+                    <button style="width:100%; padding:15px; background:var(--accent); color:#fff; border:none; font-weight:900; text-transform:uppercase; cursor:pointer;">Transmit Message</button>
                 </form>
             </div>
         </div>
