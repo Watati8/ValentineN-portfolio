@@ -38,7 +38,6 @@
         .nav-content { display: flex; justify-content: space-between; align-items: center; }
         .logo { font-weight: 900; font-size: 1.5rem; letter-spacing: -1px; text-transform: uppercase; color: var(--text-main); cursor: pointer; display: flex; align-items: center; }
         
-        /* The Live Red Dot */
         .live-dot {
             height: 12px; width: 12px; background-color: var(--accent); border-radius: 50%;
             display: inline-block; margin-right: 12px; box-shadow: 0 0 10px var(--accent);
@@ -54,60 +53,48 @@
         .nav-links button:hover { color: var(--accent); }
 
         /* --- GLOBE BACKGROUND --- */
-        .globe-bg {
-            position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%);
-            width: 900px; height: 900px; z-index: -1; opacity: 0.05; pointer-events: none;
-        }
+        .globe-bg { position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 900px; height: 900px; z-index: -1; opacity: 0.05; pointer-events: none; }
         .globe-icon { font-size: 600px; animation: rotateGlobe 80s linear infinite; }
 
-        /* --- HOME PAGE --- */
-        #home { min-height: 80vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 100px 0; }
-        .profile-img {
-            width: 220px; height: 220px; margin-bottom: 30px; border-radius: 50%;
-            border: 4px solid var(--accent); background: url('images/valentine-profile.png') center 20%/cover; 
-            box-shadow: 0 0 60px rgba(214, 48, 49, 0.3);
-        }
+        /* --- HOME SECTION --- */
+        #home { padding: 100px 0; display: flex; flex-direction: column; align-items: center; text-align: center; }
+        .profile-img { width: 220px; height: 220px; margin-bottom: 30px; border-radius: 50%; border: 4px solid var(--accent); background: url('images/valentine-profile.png') center 20%/cover; box-shadow: 0 0 60px rgba(214, 48, 49, 0.3); }
         .hero-title { font-size: 5rem; font-weight: 900; letter-spacing: -3px; text-transform: uppercase; line-height: 0.9; margin-bottom: 20px; }
         .hero-sub { font-size: 1.5rem; color: var(--text-dim); max-width: 700px; margin-bottom: 40px; font-weight: 300; }
         
-        .cta-group { display: flex; gap: 20px; }
+        .cta-group { display: flex; gap: 20px; margin-bottom: 40px; }
         .btn-primary { padding: 20px 40px; background: var(--accent); color: white; text-decoration: none; font-weight: 900; text-transform: uppercase; letter-spacing: 2px; transition: 0.3s; border: none; cursor: pointer; }
         .btn-outline { padding: 20px 40px; background: transparent; color: white; border: 2px solid #fff; text-decoration: none; font-weight: 900; text-transform: uppercase; letter-spacing: 2px; transition: 0.3s; cursor: pointer; }
-        .btn-primary:hover { background: white; color: black; }
-        .btn-outline:hover { background: white; color: black; }
+        .btn-primary:hover, .btn-outline:hover { background: white; color: black; }
 
-        .brand-wall { margin-top: 80px; display: flex; flex-wrap: wrap; justify-content: center; gap: 40px; opacity: 0.4; filter: grayscale(1); }
+        .brand-wall { margin-top: 60px; display: flex; flex-wrap: wrap; justify-content: center; gap: 40px; opacity: 0.4; filter: grayscale(1); }
         .brand-item { font-weight: 900; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 3px; }
+
+        /* --- BULLETS & TEXT --- */
+        .bullets { list-style: none; text-align: left; }
+        .bullets li { position: relative; padding-left: 25px; margin-bottom: 12px; color: #eee; font-size: 1rem; }
+        .bullets li::before { content: '→'; position: absolute; left: 0; color: var(--accent); font-weight: 900; }
 
         /* --- ABOUT SECTION --- */
         .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; padding: 100px 0; }
         .about-text h2 { font-size: 3.5rem; font-weight: 900; text-transform: uppercase; margin-bottom: 30px; }
         .about-text p { font-size: 1.1rem; color: var(--text-dim); margin-bottom: 25px; }
-        
+
         .visual-container { position: relative; display: flex; justify-content: center; align-items: center; }
         .radio-visual { width: 300px; height: 300px; border: 2px solid var(--accent); border-radius: 50%; display: flex; justify-content: center; align-items: center; position: relative; }
         .radio-visual i { font-size: 5rem; color: var(--accent); z-index: 2; }
         .pulse { position: absolute; width: 100%; height: 100%; border: 2px solid var(--accent); border-radius: 50%; animation: signalPulse 3s infinite; opacity: 0; }
         .pulse:nth-child(2) { animation-delay: 1s; }
         .pulse:nth-child(3) { animation-delay: 2s; }
-
         @keyframes signalPulse { 0% { transform: scale(1); opacity: 0.5; } 100% { transform: scale(1.8); opacity: 0; } }
 
         /* --- ARCHIVE SECTION --- */
         .archive-header { margin: 60px 0; border-left: 8px solid var(--accent); padding-left: 25px; }
         .archive-header h2 { font-size: 3.5rem; text-transform: uppercase; font-weight: 900; }
-        
         .work-card { background: #0f0f0f; border: 1px solid #1a1a1a; padding: 50px; margin-bottom: 40px; }
         .card-label { color: var(--accent); font-weight: 900; text-transform: uppercase; letter-spacing: 2px; font-size: 0.8rem; margin-bottom: 10px; display: block; }
         .work-card h3 { font-size: 2.5rem; text-transform: uppercase; font-weight: 900; margin-bottom: 20px; }
-        
         .work-details { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; }
-        .description-col p { color: var(--text-dim); margin-bottom: 25px; font-size: 1.05rem; }
-        
-        .bullets { list-style: none; margin-bottom: 30px; }
-        .bullets li { position: relative; padding-left: 25px; margin-bottom: 12px; color: #eee; font-size: 0.95rem; }
-        .bullets li::before { content: '→'; position: absolute; left: 0; color: var(--accent); font-weight: 900; }
-
         .links-col { background: #141414; padding: 30px; border-radius: 4px; }
         .category-title { font-size: 0.65rem; font-weight: 900; color: var(--accent); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 15px; display: block; border-bottom: 1px solid #333; padding-bottom: 5px; }
         .links-grid { display: grid; grid-template-columns: 1fr; gap: 10px; margin-bottom: 30px; }
@@ -122,10 +109,7 @@
         .contact-method i { color: var(--accent); margin-right: 20px; font-size: 1.5rem; }
 
         @keyframes rotateGlobe { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
-        @media (max-width: 900px) {
-            .hero-title { font-size: 3rem; }
-            .work-details, .contact-grid, .about-grid { grid-template-columns: 1fr; }
-        }
+        @media (max-width: 900px) { .hero-title { font-size: 3rem; } .work-details, .contact-grid, .about-grid { grid-template-columns: 1fr; } }
     </style>
 </head>
 <body>
@@ -143,11 +127,9 @@
 
     <nav>
         <div class="container nav-content">
-            <div class="logo" onclick="showSection('home')">
-                <span class="live-dot"></span> Valentine Ngaruiya
-            </div>
+            <div class="logo" onclick="showSection('home-wrapper')"><span class="live-dot"></span> Valentine Ngaruiya</div>
             <div class="nav-links">
-                <button onclick="showSection('home')">Home</button>
+                <button onclick="showSection('home-wrapper')">Home</button>
                 <button onclick="showSection('about')">About</button>
                 <button onclick="showSection('archive')">Archive</button>
                 <button onclick="showSection('contact')">Contact</button>
@@ -155,38 +137,51 @@
         </div>
     </nav>
 
-    <section id="home" class="container fade-in">
-        <div class="profile-img"></div>
-        <h1 class="hero-title">Human Stories.<br>Global Reach.</h1>
-        <p class="hero-sub">Multimedia Producer & Digital Strategist. Translating complex social, policy, and community issues into high-impact narratives.</p>
-        <div class="cta-group">
-            <button class="btn-primary" onclick="showSection('archive')">Transmission Archive</button>
-            <button class="btn-outline" onclick="showSection('about')">The Narrative</button>
-        </div>
-        <div class="brand-wall">
-            <span class="brand-item">BBC News</span>
-            <span class="brand-item">Meta</span>
-            <span class="brand-item">Radio Africa Group</span>
-            <span class="brand-item">Mediamax K24</span>
-            <span class="brand-item">Kiss 100</span>
-            <span class="brand-item">Classic 105</span>
-        </div>
-    </section>
+    <div id="home-wrapper" class="fade-in">
+        <section id="home" class="container">
+            <div class="profile-img"></div>
+            <h1 class="hero-title">Human Stories.<br>Global Impact.</h1>
+            <p class="hero-sub">Digital Storyteller & Communications Specialist. I translate complex social, policy, and community issues into engaging, accessible content through video and writing.</p>
+            
+            <div class="cta-group">
+                <button class="btn-primary" onclick="showSection('archive')">Transmission Archive</button>
+                <button class="btn-outline" onclick="showSection('about')">The Narrative</button>
+            </div>
+
+            <div class="brand-wall">
+                <span class="brand-item">BBC News</span>
+                <span class="brand-item">Meta</span>
+                <span class="brand-item">Radio Africa Group</span>
+                <span class="brand-item">Mediamax K24</span>
+                <span class="brand-item">Kiss 100</span>
+                <span class="brand-item">Classic 105</span>
+            </div>
+        </section>
+
+        <section class="container" style="padding: 100px 0; border-top: 1px solid #1a1a1a; margin-top: 80px;">
+            <h2 style="font-size:2.5rem; font-weight:900; margin-bottom:30px; text-transform: uppercase;">What I Do</h2>
+            <ul class="bullets">
+                <li>Multimedia storytelling across digital and social platforms</li>
+                <li>Video editing for short-form and narrative-driven content</li>
+                <li>Communications support translating complex ideas into clear messaging</li>
+                <li>Content strategy focused on audience engagement and accessibility</li>
+            </ul>
+        </section>
+    </div>
 
     <section id="about" class="container hidden">
         <div class="about-grid">
             <div class="about-text">
                 <h2>The Force <br> Behind the Signal</h2>
-                <p>I am a communications professional with a deep-rooted background in journalism and digital storytelling. My career is defined by <b>making complex stories accessible</b> to global audiences.</p>
-                <p>From the newsrooms of <b>BBC News</b> and <b>K24</b> to leading digital strategy for the <b>Radio Africa Group</b>, I bring a unique blend of editorial rigor and creative innovation.</p>
-                <p>What I bring to teams:
-                    <ul class="bullets">
-                        <li><b>High-Impact Production:</b> Full multimedia workflow management from field to newsroom.</li>
-                        <li><b>Strategic Insight:</b> Data-driven content strategies that boost audience engagement.</li>
-                        <li><b>Stakeholder Mastery:</b> Experience in diplomacy, interviews, and brand-voice alignment.</li>
-                    </ul>
-                </p>
-                <button class="btn-primary" onclick="showSection('home')" style="margin-top:20px;">Back to Home</button>
+                <p>I am a digital storyteller and communications professional with a background in journalism and multimedia production. My work focuses on making complex issues clear, engaging, and accessible to global audiences.</p>
+                <p>I’ve worked with <b>BBC News</b>, <b>K24</b>, and <b>Radio Africa Group</b>, creating content that connects storytelling with real-world impact.</p>
+                <p>What I bring:</p>
+                <ul class="bullets">
+                    <li><b>Storytelling:</b> Turning complex topics into engaging narratives</li>
+                    <li><b>Execution:</b> Strong video editing and multimedia production</li>
+                    <li><b>Strategy:</b> Content designed to inform, engage, and reach audiences effectively</li>
+                </ul>
+                <button class="btn-primary" onclick="showSection('home-wrapper')" style="margin-top:20px;">Back to Home</button>
             </div>
             <div class="visual-container">
                 <div class="radio-visual">
@@ -210,11 +205,13 @@
             <h3>Politics & Governance</h3>
             <div class="work-details">
                 <div class="description-col">
-                    <p>In-depth coverage of high-stakes political shifts, international conflict, and electoral transparency for global audiences like the BBC.</p>
+                    <p><b>Goal:</b> Deliver clear and engaging coverage of political developments for a global audience.</p>
+                    <p><b>Approach:</b> Produced multimedia content simplifying complex electoral and policy issues through video and digital storytelling.</p>
+                    <p><b>Impact:</b> Helped audiences better understand key political events and their real-world implications.</p>
                     <ul class="bullets">
-                        <li>Directed Kenya 2022 Election digital features.</li>
-                        <li>Analyzed policy impact on youth demographics.</li>
-                        <li>Reported on geopolitical conflict and maritime heroism.</li>
+                        <li>Directed Kenya 2022 Election digital features</li>
+                        <li>Analyzed policy impact on youth demographics</li>
+                        <li>Reported on geopolitical conflict and maritime heroism</li>
                     </ul>
                 </div>
                 <div class="links-col">
@@ -249,8 +246,8 @@
                 <div class="links-col">
                     <span class="category-title">Human Rights & Health</span>
                     <div class="links-grid">
-                        <a href="https://www.instagram.com/tv/CD_ZD_gAvNK/" target="_blank" class="work-link">The Pads Story (Health)</a>
-                        <a href="https://www.instagram.com/tv/CG91-Bvj1py/" target="_blank" class="work-link">Intersex Persons Rights</a>
+                        <a href="https://www.instagram.com/tv/CD_ZD_gAvNK/" target="_blank" class="work-link">The Pads Story</a>
+                        <a href="https://www.instagram.com/tv/CG91-Bvj1py/" target="_blank" class="work-link">Intersex Rights</a>
                         <a href="https://www.facebook.com/BBCnewsafrica/videos/780413966550143/" target="_blank" class="work-link">Jean Marimba Support</a>
                     </div>
                     <span class="category-title">Sustainability</span>
@@ -267,13 +264,13 @@
             <h3>Culture & Lifestyle</h3>
             <div class="work-details">
                 <div class="description-col">
-                    <p>Showcasing the vibrant pulse of African creativity, fashion, and communal identity through high-gloss digital features.</p>
+                    <p>Showcasing the vibrant pulse of African creativity, fashion, and communal identity through digital features.</p>
                 </div>
                 <div class="links-col">
                     <span class="category-title">Culture Transmissions</span>
                     <div class="links-grid">
                         <a href="https://www.instagram.com/tv/ChNFry9oBIC/" target="_blank" class="work-link">Africa Fashion Hub</a>
-                        <a href="https://www.instagram.com/reel/Ck2yF9xIkGQ/" target="_blank" class="work-link">Samburu Cultural Spotlight</a>
+                        <a href="https://www.instagram.com/reel/Ck2yF9xIkGQ/" target="_blank" class="work-link">Samburu Spotlight</a>
                         <a href="https://www.instagram.com/tv/Ce1kuLol-NW/" target="_blank" class="work-link">Patrice Evra Feature</a>
                         <a href="https://www.instagram.com/tv/CewQQC0lzsb/" target="_blank" class="work-link">The Wig Narrative</a>
                         <a href="https://www.instagram.com/tv/CGiD9B_jRAY/" target="_blank" class="work-link">Artisanal Sandals</a>
@@ -284,15 +281,15 @@
 
         <div class="work-card">
             <span class="card-label">Commercial Strategy</span>
-            <h3>Radio Africa & Meta Strategy</h3>
+            <h3>Radio Africa & Meta</h3>
             <div class="work-details">
                 <div class="description-col">
-                    <p>Executing multi-channel content strategies for Kenya's leading radio brands, boosting social engagement and commercial reach.</p>
+                    <p>Executing multi-channel content strategies for Kenya's leading radio brands, boosting engagement and commercial reach.</p>
                 </div>
                 <div class="links-col">
                     <span class="category-title">Brand Campaigns</span>
                     <div class="links-grid">
-                        <a href="https://www.instagram.com/tv/CFOt2kdHA7y/" target="_blank" class="work-link">Kiss Staycation Drive</a>
+                        <a href="https://www.instagram.com/tv/CFOt2kdHA7y/" target="_blank" class="work-link">Kiss Staycation</a>
                         <a href="https://www.instagram.com/tv/CFMgo1RHxKX/" target="_blank" class="work-link">Kisses of Kindness</a>
                         <a href="https://fb.watch/1_n3DhA_3Q/" target="_blank" class="work-link">Meta Watch Strategy</a>
                         <a href="https://instagram.com/tv/CKTCgEnnBjj/" target="_blank" class="work-link">Mamito Feature</a>
@@ -306,10 +303,11 @@
     <section id="contact" class="container hidden">
         <div class="contact-grid">
             <div>
-                <h2 style="font-size:4rem; font-weight:900; text-transform:uppercase;">Establish <br> Contact</h2>
+                <h2 style="font-size:4rem; font-weight:900; text-transform:uppercase;">Touch <br> Base</h2>
+                <p style="color:var(--text-dim); margin-bottom:20px;">Currently open to communications, digital content, and storytelling opportunities.</p>
                 <a href="mailto:Valentinewatati@gmail.com" class="contact-method"><i class="fas fa-envelope"></i><span>Valentinewatati@gmail.com</span></a>
                 <a href="tel:+254723871172" class="contact-method"><i class="fas fa-phone"></i><span>+254 723 871172</span></a>
-                <button class="btn-outline" onclick="showSection('home')" style="margin-top:20px;">Return Home</button>
+                <button class="btn-outline" onclick="showSection('home-wrapper')" style="margin-top:20px;">Return Home</button>
             </div>
             <div style="background:#111; padding:40px; border:1px solid #222;">
                 <form>
@@ -323,7 +321,7 @@
 
     <script>
         function showSection(id) {
-            document.getElementById('home').classList.add('hidden');
+            document.getElementById('home-wrapper').classList.add('hidden');
             document.getElementById('about').classList.add('hidden');
             document.getElementById('archive').classList.add('hidden');
             document.getElementById('contact').classList.add('hidden');
